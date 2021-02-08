@@ -28,25 +28,25 @@
             <div class="form-group row">
                 <label for="participantID" class="col-sm-2 col-form-label col-form-label-sm">Participant ID</label>
                 <div class="col-sm-5">
-                <input type="text" class="form-control form-control-sm" id="participantID" placeholder="Participant ID">
+                    <input type="text" class="form-control form-control-sm" id="participantID" placeholder="Participant ID">
                 </div>
             </div>
           
             <div class="form-group row">
                 <label for="facility" class="col-sm-2 col-form-label col-form-label-sm">Facility name</label>
                 <div class="col-sm-5">
-                <input type="text" class="form-control form-control-sm" id="facility" placeholder="Facility name">
+                    <input type="text" class="form-control form-control-sm" id="facility" placeholder="Facility name">
                 </div>
                 <label for="country" class="col-sm-1 col-form-label col-form-label-sm">Country</label>
                 <div class="col-sm-4">
-                <input type="text" class="form-control form-control-sm" id="country" placeholder="Country">
+                    <input type="text" class="form-control form-control-sm" id="country" placeholder="Country">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Date of enrollment</label>
+                <label for="enroll" class="col-sm-2 col-form-label col-form-label-sm">Date of enrollment</label>
                 <div class="col-sm-5">
-                <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="DD/MM/20YY">
+                    <input type="text" class="form-control form-control-sm" id="enroll" placeholder="DD/MM/20YY">
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
                 <div class="card-body">
                   <p class="card-text">One or more of these during this illness:</p>
 
-                  <div class='col'>
+                  <div class='col col-form-label-sm'>
                     <div class="form-group row">
                         <div class="col-sm-10">A history of self-reported feverishness or measured fever of ≥ 38ºC</div>
                         <div class="col-sm-1">
@@ -142,28 +142,27 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
-
-            <div class="card bg-light">
-                <div class="card-header"><strong>1b. Demographics</strong></div>
-
-                <div class="card-body">
-                  <div class='col'>
+        </div>
+            
+        <div class="card bg-light mb-3">
+            <div class="card-header"><strong>1b. DEMOGRAPHICS</strong></div>
+            <div class="card-body">
+                <div class='col col-form-label-sm'>
                     <div class="form-group row">
                         <div class="col-sm-2">Sex at birth</div>
                         <div class="col-sm-1">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioM" value="male">
+                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioM" value="Male">
                                     Male
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-1 form-check">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioMF" value="female">
+                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioMF" value="Female">
                                     Female
                                 </label>
                             </div>
@@ -171,86 +170,145 @@
                         <div class="col-sm-2">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioN" value="notSpec">
+                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioN" value="Not Specified">
                                     Not Specified
                                 </label>
                             </div>
                         </div>
-                        <label for="dob" class="col-sm-1 col-form-label col-form-label-sm">Date of birth</label>
-                        <div class="col-sm-4">
+                    </div>
+                
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            <label for="dob" class="form-check-label">Date of Birth</label>
+                        </div>
+                        <div class="col-sm-2">
                             <input type="text" class="form-control form-control-sm" id="dob" placeholder="DD/MM/YYYY">
                         </div>
-                    </div>
-
-                  
-                    <div class="form-group row">
-                        <div class="col-sm-10">Cough</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1">
-                                Yes
-                            </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                No
-                            </label>
-                            </div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-3"> Age <small>(If date of birth is unknown)</small></div>
+                        <label for="age" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="age">
+                        </label>
+                        <div class="col-sm-1.5">
+                            <select class="form-control form-control-sm" id="age">
+                                <option>years</option>
+                                <option>months</option>
+                                <option>days</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-sm-10">Dyspnoea (shortness of breath) OR Tachypnoea
-                            <small class="form-text text-muted">
-                                Respiratory rate ≥ 50 breaths/min for < 1 year; ≥ 40 for 1–4 years; ≥ 30 for 5–12 years; ≥ 20 for ≥ 13 years
-                            </small>
-                        </div>
-
+                        <div class="col-sm-2">Health care worker?</div>
                         <div class="col-sm-1">
                             <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1">
-                                Yes
-                            </label>
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="healthcareWorker" id="healthcareWorkerYes" value="Yes">
+                                    Yes
+                                </label>
                             </div>
                         </div>
                         <div class="col-sm-1">
                             <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                No
-                            </label>
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="healthcareWorker" id="healthcareWorkerNo" value="No">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="healthcareWorker" id="healthcareWorkerU" value="Unknown">
+                                    Unknown
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">Laboratory worker?</div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="LabWorker" id="LabWorkerY" value="Yes">
+                                    Yes
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="LabWorker" id="LabWorkerN" value="No">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="LabWorker" id="LabWorkerU" value="Unknown">
+                                    Unknown
+                                </label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-sm-10">Clinical suspicion despite not meeting criteria above</div>
+                        <div class="col-sm-2">Parents?</div>
                         <div class="col-sm-1">
                             <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1">
-                                Yes
-                            </label>
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="parents" id="parentsY" value="Yes">
+                                    Yes
+                                </label>
                             </div>
                         </div>
                         <div class="col-sm-1">
                             <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                No
-                            </label>
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="parents" id="parentsN" value="No">
+                                    No
+                                </label>
                             </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="parents" id="parentsU" value="Unknown">
+                                    Unknown
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="parents" id="parentsNA" value="N/A">
+                                    N/A
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">If yes: Gestational weeks assessment?</div>
+                        <label for="gest" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="gest">
+                        </label>
+                        <div class="col-sm-1.5">weeks</div>
+                        
+                        <div class="col-sm-12 form-text">
+                            <i style="color:#FF0000";>If currently pregnant or recently pregnant (delivery within 21 days of symptom onset), complete Pregnancy CRF</i>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
-            
+        </div>
+
+        <div class="card bg-light mb-3">
+            <div class="card-header"><strong>1c. DATE OF ONSET AND ADMISSION VITAL SIGNS</strong> (first available data at presentation/admission)</div>
+
+            <div class="card-body">
+            </div>
+
+        </div>
+
         </fieldset>
       </form>
 <!-- html js form submit -->
