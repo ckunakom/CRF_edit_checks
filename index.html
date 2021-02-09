@@ -6,13 +6,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Edit Checksの素晴らしさ</title>
   </head>
+  
   <body>
 
     <div class="container">
     <h1>どうしようかな？</h1>
+    <p>I'm changing the question order... I can't do this😱</p>
 
     <p>Refer to the WHO website for the original Case Report form: <a href="https://www.who.int/publications/i/item/WHO-2019-nCoV-Clinical_CRF-2020.4">Global COVID-19 Clinical Platform
         RAPID CORE CASE REPORT FORM (CRF)</a></p>
@@ -184,13 +187,14 @@
                         <div class="col-sm-2">
                             <input type="text" class="form-control form-control-sm" id="dob" placeholder="DD/MM/YYYY">
                         </div>
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-3"> Age <small>(If date of birth is unknown)</small></div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-2"> Age <small>(If date of birth is unknown)</small></div>
                         <label for="age" class="form-check-label col-sm-1">
                             <input type="text" class="form-control form-control-sm" id="age">
                         </label>
-                        <div class="col-sm-1.5">
-                            <select class="form-control form-control-sm" id="age">
+                        <div class="col-sm-1">
+                            <select class="form-control form-control-sm" id="ageUnit">
+                                <option></option>
                                 <option>years</option>
                                 <option>months</option>
                                 <option>days</option>
@@ -216,7 +220,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="healthcareWorker" id="healthcareWorkerU" value="Unknown">
@@ -242,7 +246,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-1.5">
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="LabWorker" id="LabWorkerU" value="Unknown">
@@ -278,7 +282,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="parents" id="parentsNA" value="N/A">
@@ -286,17 +290,15 @@
                                 </label>
                             </div>
                         </div>
-
-                        <div class="col-sm-3">If yes: Gestational weeks assessment?</div>
+                        <div class="col-sm-2">If yes, gestational weeks assessment?</div>
                         <label for="gest" class="form-check-label col-sm-1">
                             <input type="text" class="form-control form-control-sm" id="gest">
                         </label>
-                        <div class="col-sm-1.5">weeks</div>
-                        
-                        <div class="col-sm-12 form-text">
-                            <i style="color:#FF0000";>If currently pregnant or recently pregnant (delivery within 21 days of symptom onset), complete Pregnancy CRF</i>
-                        </div>
+                        <div class="col-sm-1">weeks</div>
                     </div>
+                </div>
+                <div class="col-sm-12 form-text">
+                    <i class="preg">If currently pregnant or recently pregnant (delivery within 21 days of symptom onset), complete Pregnancy CRF</i>
                 </div>
             </div>
         </div>
@@ -305,9 +307,205 @@
             <div class="card-header"><strong>1c. DATE OF ONSET AND ADMISSION VITAL SIGNS</strong> (first available data at presentation/admission)</div>
 
             <div class="card-body">
-            </div>
+                <div class='col col-form-label-sm'>
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            <label for="sxs" class="form-check-label">Symptom onset <small>(date of first/earliest symptom)</small></label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control form-control-sm" id="sxs" placeholder="DD/MM/20YY">
+                        </div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-2">
+                            <label for="admit" class="form-check-label">Admission date at this facility</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control form-control-sm" id="admit" placeholder="DD/MM/20YY">
+                        </div>                        
+                    </div>
 
+                    <div class="form-group row">
+                        <div class="col-sm-2">Height</div>
+                        <label for="height" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="height">
+                        </label>
+                        <div class="col-sm-2">cm</div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">Weight</div>
+                        <label for="height" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="height">
+                        </label>
+                        <div class="col-sm-2">kg</div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-2">Temperature</div>
+                        <label for="temp" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="temp">
+                        </label>
+                        <div class="col-sm-2">&#8451</div>
+                        <div class="col-sm-2"></div>
+
+                        <div class="col-sm-2">Severe dehydration</div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="dehyd" id="dehydYes" value="Yes">
+                                    Yes
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="dehyd" id="dehydNo" value="No">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1.5">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="dehyd" id="dehydU" value="Unknown">
+                                    Unknown
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-2">Heart rate</div>
+                        <label for="hr" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="hr">
+                        </label>
+                        <div class="col-sm-2">beats/min</div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">AVPU assessment</div>
+                        <div class="col-sm-1">
+                            <select class="form-control form-control-sm" id="avpuScale">
+                                <option></option>
+                                <option>A</option>
+                                <option>V</option>
+                                <option>P</option>
+                                <option>U</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-2">Respiratory rate</div>
+                        <label for="rr" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="rr">
+                        </label>
+                        <div class="col-sm-2">breaths/min</div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">Glasgow Coma Score (GCS/15)</div>
+                        <label for="gcs" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="gcs">
+                        </label>
+
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-sm-2">BP (systolic/diastolic)</div>
+                        <label for="hr" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="hr">
+                        </label>
+                        <div class="col-sm-2">mmHg</div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">Malnutrition</div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="maln" id="malnY" value="Yes">
+                                    Yes
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="maln" id="malnN" value="No">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1.5">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="maln" id="malnU" value="Unknown">
+                                    Unknown
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-2">% Oxygen saturation</div>
+                        <label for="o2sat" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="o2sat">
+                        </label>
+                        <div class="col-sm-2">
+                            <select class="form-control form-control-sm" id="o2type">
+                                <option></option>
+                                <option>Room air</option>
+                                <option>Oxygen therapy</option>
+                                <option>Unknown</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">Mid-upper arm circumference</div>
+                        <label for="o2sat" class="form-check-label col-sm-1">
+                            <input type="text" class="form-control form-control-sm" id="mid_upper_arm">
+                        </label>
+                        <div class="col-sm-2">mm</div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-2">Sternal capillary refill time > 2 seconds</div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="capTime" id="capTimeYes" value="Yes">
+                                    Yes
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="capTime" id="capTimeNo" value="No">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1.5">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="capTime" id="capTimeU" value="Unknown">
+                                    Unknown
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="card bg-light mb-3">
+            <div class="card-header"><strong>CO-MORBIDITIES</strong> (existing at admission)</div>
+            <div class="card-body">
+                <div class='col col-form-label-sm'>
+                    <div class="form-group row">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
 
         </fieldset>
       </form>
