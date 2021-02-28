@@ -1,4 +1,4 @@
-// Co-Morbidities
+//---------- 1d. Co-Morbidities ----------//
 var comorbidityList = [
     {disease: 'Chronic cardiac disease (not hypertension)', type: 'left'},
     {disease: 'Diabetes', type: 'right' },
@@ -19,11 +19,11 @@ var comorbidityList = [
 var comorbDom = "";
 
 for (var c = 0; c < comorbidityList.length; c++) {
-    const {disease, type} = comorbidityList[c]
+    const {disease, type} = comorbidityList[c];
     
     // Exception for 'Other' and 'HIV'
     if (type == 'other') {
-            comorbDom += `
+        comorbDom += `
             <div class="col-sm-2">${disease}</div>
             <div class="col-sm-1">
                 <div class="form-check">
@@ -51,7 +51,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             </div>            
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row" style="height: 20px;">
             <div class="col-sm-1">HIV</div>
             <div class="col-sm-2">
                 <select class="form-control form-control-sm" id="comorb${c+1}">
@@ -62,7 +62,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
                     <option>Unknown</option>
                 </select>
             </div>
-            <div class="col-sm-1"><p>&nbsp;&nbsp;ART Regimen</p></div>
+            <div class="col-sm-1">ART Regimen</div>
             <label for="artregimen" class="form-check-label col-sm-2">
                 <input type="text" class="form-control form-control-sm" id="artregimen" disabled>
             </label>
@@ -70,7 +70,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-1"></div>
             <div class="col-sm-2"><p>&nbsp;&nbsp;&nbsp;&nbsp;If yes, specify:</p></div>
             <label for="comorbOther" class="form-check-label col-sm-2">
-                <input type="text" class="form-control form-control-sm" id="comorbOther">
+                <input type="text" class="form-control form-control-sm" id="comorbOther" disabled>
             </label>        
         </div>`;
         }
@@ -137,3 +137,131 @@ for (var c = 0; c < comorbidityList.length; c++) {
 }
 
 document.getElementById('comorbiditiesQ').innerHTML = comorbDom;
+
+// ---------- 1e. pre-admission ----------//
+var medicationList = [
+    {medication: 'Angiotensin convertin g enzyme inhibitors (ACE inhibitors)', type: 'med'},
+    {medication: 'Angiotensin II receptor blockers (ARBs)', type: 'med'},
+    {medication: 'Non-steroidal anti-inflammatory (NSAID)', type: 'med'},
+    {medication: 'Antiviral', type: 'antiviral'}
+];
+
+var medDom = "";
+
+for (var m = 0; m < medicationList.length; m++) {
+    const {medication, type} = medicationList[m];
+
+    if (type == 'antiviral') {
+        medDom += `
+            <div class="form-group row" style="height: 20px;">
+                <div class="col-sm-2">${medication}</div>
+                <div class="col-sm-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}chlr-hydrchol" value="Chloroquine/hydroxychloroquine">
+                            Chloroquine/hydroxychloroquine
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}azith" value="Azithromycin">
+                            Azithromycin
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}lop-rit" value="Lopinavir/Ritonavir">
+                            Lopinavir/Ritonavir
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}other" value="Other">
+                            Other:
+                        </label>
+                    </div>
+                </div>
+                <label for="medOther" class="form-check-label col-sm-2">
+                    <input type="text" class="form-control form-control-sm" id="medication${m}other" disabled>
+                </label>    
+            </div>`
+    }
+
+    else {
+        medDom += `
+            <div class="form-group row">
+                <div class="col-sm-9">${medication}</div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}Yes" value="Yes">
+                            Yes
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}No" value="No">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1.5">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}U" value="Unknown">
+                            Unknown
+                        </label>
+                    </div>
+                </div>
+            </div>`
+    }
+}
+
+document.getElementById('pre-admissionQ').innerHTML = medDom;
+
+// ---------- 1f. sign and symptoms ----------//
+var sxsList = [
+    {sxs: 'History of fever', type: 'left'},
+    {sxs: 'Sore throat', type: 'left'},
+    {sxs: 'Runny nose', type: 'left'},
+    {sxs: 'Chest pain', type: 'left'},
+    {sxs: 'Muscle aches', type: 'left'},
+    {sxs: 'Joint pain (arthralgia)', type: 'left'},
+    {sxs: 'Fatigue/malaise', type: 'left'},
+    {sxs: 'Loss of taste', type: 'left'},
+    {sxs: 'Loss of smell', type: 'left'},
+    {sxs: 'Shortness of breath', type: 'left'},
+    {sxs: 'Stroke: ischaemic stroke', type: 'stroke'},
+    {sxs: 'Cough', type: 'cough'},
+    {sxs: 'Other', type: 'other'},
+    {sxs: 'Lower chest indrawing', type: 'right'},
+    {sxs: 'Headache', type: 'right'},
+    {sxs: 'Altered consciousness/confusion', type: 'right'},
+    {sxs: 'Seizures', type: 'right'},
+    {sxs: 'Abdominal pain', type: 'right'},
+    {sxs: 'Vomiting/nausea', type: 'right'},
+    {sxs: 'Diarrhoea', type: 'right'},
+    {sxs: 'Conjunctivitis', type: 'right'},
+    {sxs: 'Skin rash', type: 'right'},
+    {sxs: 'Skin ulcers', type: 'right'},
+    {sxs: 'Lymphadenopathy', type: 'right'},
+    {sxs: 'Inability to walk', type: 'right'},
+    {sxs: 'Stroke: intracerebral haemorrhage', type: 'stroke'},
+    {sxs: 'Bleeding', type: 'bleeding'}
+];
+
+console.log(sxsList);
+var sxsDom = "";
+
+for (var s = 0; s < sxsList.length; s++) {
+}
+
+document.getElementById('sxsQ').innerHTML = sxsDom;
