@@ -230,38 +230,96 @@ document.getElementById('pre-admissionQ').innerHTML = medDom;
 // ---------- 1f. sign and symptoms ----------//
 var sxsList = [
     {sxs: 'History of fever', type: 'left'},
-    {sxs: 'Sore throat', type: 'left'},
-    {sxs: 'Runny nose', type: 'left'},
-    {sxs: 'Chest pain', type: 'left'},
-    {sxs: 'Muscle aches', type: 'left'},
-    {sxs: 'Joint pain (arthralgia)', type: 'left'},
-    {sxs: 'Fatigue/malaise', type: 'left'},
-    {sxs: 'Loss of taste', type: 'left'},
-    {sxs: 'Loss of smell', type: 'left'},
-    {sxs: 'Shortness of breath', type: 'left'},
-    {sxs: 'Stroke: ischaemic stroke', type: 'stroke'},
-    {sxs: 'Cough', type: 'cough'},
-    {sxs: 'Other', type: 'other'},
     {sxs: 'Lower chest indrawing', type: 'right'},
+    {sxs: 'Cough', type: 'cough'}, // with sputum and with haemoptysis
     {sxs: 'Headache', type: 'right'},
+    {sxs: 'Sore throat', type: 'left'},
     {sxs: 'Altered consciousness/confusion', type: 'right'},
+    {sxs: 'Runny nose', type: 'left'},
     {sxs: 'Seizures', type: 'right'},
+    {sxs: 'Chest pain', type: 'left'},
     {sxs: 'Abdominal pain', type: 'right'},
+    {sxs: 'Muscle aches', type: 'left'},
     {sxs: 'Vomiting/nausea', type: 'right'},
+    {sxs: 'Joint pain (arthralgia)', type: 'left'},
     {sxs: 'Diarrhoea', type: 'right'},
+    {sxs: 'Fatigue/malaise', type: 'left'},
     {sxs: 'Conjunctivitis', type: 'right'},
+    {sxs: 'Loss of taste', type: 'left'},
     {sxs: 'Skin rash', type: 'right'},
+    {sxs: 'Loss of smell', type: 'left'},
     {sxs: 'Skin ulcers', type: 'right'},
+    {sxs: 'Shortness of breath', type: 'left'},
     {sxs: 'Lymphadenopathy', type: 'right'},
+    {sxs: 'Stroke: ischaemic stroke', type: 'stroke'},
     {sxs: 'Inability to walk', type: 'right'},
+    {sxs: 'Other', type: 'other'},
     {sxs: 'Stroke: intracerebral haemorrhage', type: 'stroke'},
     {sxs: 'Bleeding', type: 'bleeding'}
 ];
 
-console.log(sxsList);
 var sxsDom = "";
 
 for (var s = 0; s < sxsList.length; s++) {
+    const {sxs, type} = sxsList[s];
+    
+    if (type == 'left') {
+        sxsDom += `<div class="form-group row">
+        <div class="col-sm-2">${sxs}</div>
+        <div class="col-sm-1">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes">
+                    Yes
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-1">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No">
+                    No
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
+                    Unknown
+                </label>
+            </div>
+        </div>`;
+    }
+
+    else if (type == 'right') {
+        sxsDom += `
+        <div class="col-sm-2">${sxs}</div>
+        <div class="col-sm-1">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes">
+                    Yes
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-1">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No">
+                    No
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
+                    Unknown
+                </label>
+            </div>    
+        </div>`;
+    }
 }
 
 document.getElementById('sxsQ').innerHTML = sxsDom;
