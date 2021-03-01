@@ -139,7 +139,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
 document.getElementById('comorbiditiesQ').innerHTML = comorbDom;
 
 // ---------- 1e. pre-admission ----------//
-var medicationList = [
+var medicationPreList = [
     {medication: 'Angiotensin convertin g enzyme inhibitors (ACE inhibitors)', type: 'med'},
     {medication: 'Angiotensin II receptor blockers (ARBs)', type: 'med'},
     {medication: 'Non-steroidal anti-inflammatory (NSAID)', type: 'med'},
@@ -148,8 +148,8 @@ var medicationList = [
 
 var medDom = "";
 
-for (var m = 0; m < medicationList.length; m++) {
-    const {medication, type} = medicationList[m];
+for (var m = 0; m < medicationPreList.length; m++) {
+    const {medication, type} = medicationPreList[m];
 
     if (type == 'antiviral') {
         medDom += `
@@ -367,12 +367,27 @@ for (var s = 0; s < sxsList.length; s++) {
         <label for="sxsOther" class="form-check-label col-sm-3">
             <input type="text" class="form-control form-control-sm" id="sxsOther" disabled>
         </label>
-        </div>`
-        
-        
-        
-        ;
+        </div>`;
     }
 }
 
 document.getElementById('sxsQ').innerHTML = sxsDom;
+
+// ---------- 1g. Medication ----------//
+var medAdminList = [
+    {med: 'Oral/orogastric fluids', input: 'radio'},
+    {med: 'Intravenous fluids', input: 'radio'},
+    {med: 'Antiviral', input: 'radio'},
+    {med: '&nbsp;&nbsp;&nbsp;&nbsp;If yes:', input: 'special', 
+        checkbox: ['Ribavirin', 'Lopinavir/Ritonavir', 'Neuraminidase inhibitor',  'Interferon alpha', 'Interferon beta', 'Other, specify:']},
+    {med: 'Corticosteroid', input: 'steroid',
+        route: ['Oral', 'Intravenous', 'Inhaled']}, // If yes, please provide agent and maximum daily dose:
+    {med: 'Antibiotic', input: 'specify'},
+    {med: 'Antifungal agent', input: 'radio'},
+    {med: 'Antimalarial agent', input: 'specify'}, // If yes, specify:
+    {med: 'Experimental agent', input: 'specify'},
+    {med: 'Non-steroidal anti-inflammatory (NSAID)', input: 'radio'},
+    {med: 'Angiotensin converting enzyme inhibitors (ACE inhibitors)', input: 'radio'},
+    {med: 'Angiotensin II receptor blockers (ARBs)', input: 'radio'},
+    {med: 'Systemic anticoagulation', input: 'radio'}
+];
