@@ -68,8 +68,8 @@ for (var c = 0; c < comorbidityList.length; c++) {
             </label>
 
             <div class="col-sm-1"></div>
-            <div class="col-sm-2"><p>&nbsp;&nbsp;&nbsp;&nbsp;If yes, specify:</p></div>
-            <label for="comorbOther" class="form-check-label col-sm-2">
+            <div class="col-sm-2">&nbsp;&nbsp;&nbsp;&nbsp;If yes, specify:</div>
+            <label for="comorbOther" class="form-check-label col-sm-3">
                 <input type="text" class="form-control form-control-sm" id="comorbOther" disabled>
             </label>        
         </div>`;
@@ -231,31 +231,35 @@ document.getElementById('pre-admissionQ').innerHTML = medDom;
 var sxsList = [
     {sxs: 'History of fever', type: 'left'},
     {sxs: 'Lower chest indrawing', type: 'right'},
-    {sxs: 'Cough', type: 'cough'}, // with sputum and with haemoptysis
+    {sxs: 'Cough', type: 'left'}, // with sputum and with haemoptysis
     {sxs: 'Headache', type: 'right'},
-    {sxs: 'Sore throat', type: 'left'},
-    {sxs: 'Altered consciousness/confusion', type: 'right'},
-    {sxs: 'Runny nose', type: 'left'},
+    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;with sputum<br />&nbsp;&nbsp;&nbsp;&nbsp;production', type: 'left'},
+    {sxs: 'Altered consciousness<br />/confusion', type: 'right'},
+    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;with haemoptysis', type: 'left'},
     {sxs: 'Seizures', type: 'right'},
-    {sxs: 'Chest pain', type: 'left'},
+    {sxs: 'Sore throat', type: 'left'},
     {sxs: 'Abdominal pain', type: 'right'},
-    {sxs: 'Muscle aches', type: 'left'},
+    {sxs: 'Runny nose', type: 'left'},
     {sxs: 'Vomiting/nausea', type: 'right'},
-    {sxs: 'Joint pain (arthralgia)', type: 'left'},
+    {sxs: 'Wheezing', type: 'left'},
     {sxs: 'Diarrhoea', type: 'right'},
-    {sxs: 'Fatigue/malaise', type: 'left'},
+    {sxs: 'Chest pain', type: 'left'},
     {sxs: 'Conjunctivitis', type: 'right'},
-    {sxs: 'Loss of taste', type: 'left'},
+    {sxs: 'Muscle aches', type: 'left'},
     {sxs: 'Skin rash', type: 'right'},
-    {sxs: 'Loss of smell', type: 'left'},
+    {sxs: 'Joint pain (arthralgia)', type: 'left'},
     {sxs: 'Skin ulcers', type: 'right'},
-    {sxs: 'Shortness of breath', type: 'left'},
+    {sxs: 'Fatigue/malaise', type: 'left'},
     {sxs: 'Lymphadenopathy', type: 'right'},
-    {sxs: 'Stroke: ischaemic stroke', type: 'stroke'},
+    {sxs: 'Loss of taste', type: 'left'},
     {sxs: 'Inability to walk', type: 'right'},
-    {sxs: 'Other', type: 'other'},
-    {sxs: 'Stroke: intracerebral haemorrhage', type: 'stroke'},
-    {sxs: 'Bleeding', type: 'bleeding'}
+    {sxs: 'Loss of smell', type: 'left'},
+    {sxs: 'Bleeding', type: 'right'},
+    {sxs: 'Shortness of breath', type: 'left'},
+    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;If bleeding, <br />&nbsp;&nbsp;&nbsp;&nbspspecify site(s):', type: 'bleeding'}, // bleeding specify
+    {sxs: 'Stroke: ischaemic stroke', type: 'left'},
+    {sxs: 'Stroke: intracerebral haemorrhage', type: 'right'},
+    {sxs: 'Other', type: 'other'}
 ];
 
 var sxsDom = "";
@@ -311,14 +315,63 @@ for (var s = 0; s < sxsList.length; s++) {
                 </label>
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1.5">
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
                     Unknown
                 </label>
             </div>    
+        </div>
         </div>`;
+    }
+
+    else if (type == 'bleeding') {
+
+        sxsDom += `<div class="col-sm-2" >${sxs}</div>
+        <label for="bleedingOther" class="form-check-label col-sm-3">
+            <input type="text" class="form-control form-control-sm" id="bleedingOther" disabled>
+        </label>        
+        </div>`;
+    }
+    
+    else if (type == 'other') { 
+    
+        sxsDom += `</div><div class="form-group row style="height: 20px;">
+        <div class="col-sm-2">${sxs}</div>
+        <div class="col-sm-1">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes">
+                    Yes
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-1">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No">
+                No
+            </label>
+        </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
+                    Unknown
+                </label>
+            </div>    
+        </div>
+        <div class="col-sm-2">If yes, specify</div>
+        <label for="sxsOther" class="form-check-label col-sm-3">
+            <input type="text" class="form-control form-control-sm" id="sxsOther" disabled>
+        </label>
+        </div>`
+        
+        
+        
+        ;
     }
 }
 
