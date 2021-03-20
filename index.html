@@ -8,540 +8,54 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/style.css">
 
-    <title>Edit Checksの素晴らしさ</title>
+    <title>eCRF & EC</title>
+    <link rel="icon" type="image/png" href="https://ckunakom.github.io/img/logo.png">
   </head>
   
   <body>
 
+<!-- Add  -->
+    
     <div class="container">
-    <h1>どうしようかな？</h1>
-
-    <p>Refer to the WHO website for the original Case Report form: <a href="https://www.who.int/publications/i/item/WHO-2019-nCoV-Clinical_CRF-2020.4">Global COVID-19 Clinical Platform
-        RAPID CORE CASE REPORT FORM (CRF)</a></p>
-
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">MODULE 1. Complete on hospital admission (within 24 hrs from hospital admission)</li>
-    </ol>
-
-    <!-- Bootstrap template -->
-    <form>
-        <fieldset>
-            
-            <div class="form-group row">
-                <label for="participantID" class="col-sm-2 col-form-label col-form-label-sm">Participant ID</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control form-control-sm" id="participantID" placeholder="Participant ID">
-                </div>
-            </div>
-          
-            <div class="form-group row">
-                <label for="facility" class="col-sm-2 col-form-label col-form-label-sm">Facility name</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control form-control-sm" id="facility" placeholder="Facility name">
-                </div>
-                <label for="country" class="col-sm-1 col-form-label col-form-label-sm">Country</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control form-control-sm" id="country" placeholder="Country">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="enroll" class="col-sm-2 col-form-label col-form-label-sm">Date of enrollment</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control form-control-sm" id="enroll" placeholder="DD/MM/20YY">
-                </div>
-            </div>
-
-            <div class="card bg-light mb-3">
-                <div class="card-header"><strong>1a. CLINICAL INCLUSION CRITERIA</strong></div>
-
-                <div class="card-body">
-                  <p class="card-text">One or more of these during this illness:</p>
-
-                  <div class='col col-form-label-sm'>
-                    <div class="form-group row">
-                        <div class="col-sm-10">A history of self-reported feverishness or measured fever of ≥ 38ºC</div>
-                        <div class="col-sm-1">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="fever" id="feverRadioY" value="feverY">
-                                Yes
-                            </label>
-                        </div>
-                        </div>
-                        <div class="col-sm-1">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="fever" id="feverRadioN" value="feverN">
-                                No
-                            </label>
-                        </div>
-                        </div>
-                    </div>
-                  
-                    <div class="form-group row">
-                        <div class="col-sm-10">Cough</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="cough" id="coughRadioY" value="coughY">
-                                Yes
-                            </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="cougj" id="coughRadioN" value="coughN">
-                                No
-                            </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-10">Dyspnoea (shortness of breath) OR Tachypnoea
-                            <small class="form-text text-muted">
-                                Respiratory rate ≥ 50 breaths/min for < 1 year; ≥ 40 for 1–4 years; ≥ 30 for 5–12 years; ≥ 20 for ≥ 13 years
-                            </small>
-                        </div>
-
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sob" id="sobRadioY" value="sobY">
-                                Yes
-                            </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sob" id="sobRadioN" value="sobN">
-                                No
-                            </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-10">Clinical suspicion despite not meeting criteria above</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="clinInc" id="clinRadioY" value="clinIncY">
-                                Yes
-                            </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="clinInc" id="optionsRadioN" value="clinIncN">
-                                No
-                            </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1b. DEMOGRAPHICS</strong></div>
-            <div class="card-body">
-                <div class='col col-form-label-sm'>
-                    <div class="form-group row">
-                        <div class="col-sm-2">Sex at birth</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioM" value="Male">
-                                    Male
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1 form-check">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioMF" value="Female">
-                                    Female
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" id="genderRadioN" value="Not Specified">
-                                    Not Specified
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+        <div class="row mb-2">
+            <div class="col-12">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <h1 class="pb-3 pt-3 border-bottom">Clinical Data Management: eCRF & Edit Checks</h1>
                 
-                    <div class="form-group row">
-                        <div class="col-sm-2">
-                            <label for="dob" class="form-check-label">Date of Birth</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control form-control-sm" id="dob" placeholder="DD/MM/YYYY">
-                        </div>
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-2"> Age (If date of birth is unknown)</div>
-                        <label for="age" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="age">
-                        </label>
-                        <div class="col-sm-2">
-                            <select class="form-control form-control-sm" id="ageUnit">
-                                <option></option>
-                                <option>years</option>
-                                <option>months</option>
-                                <option>days</option>
-                            </select>
-                        </div>
-                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="pt-2">Background</h3>
+                                <p>As a Clinical Data Analyst (CDA), my task include coming up with all kinds of data cleaning process to ensure that clinical data entered into the database is clean. One of the strategy is to have Edit Checks in place on the eCRF (electronic case report form) in order to eliminate a good chunk of manual data review/data cleaning tasks from the clinical monitors which ultimately saves time and human resources. Additionally, adding validations like Edit Checks enable data cleaning process at a vert early stage, data entry.</p>
 
-                    <div class="form-group row">
-                        <div class="col-sm-2">Health care worker?</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="healthcareWorker" id="healthcareWorkerYes" value="Yes">
-                                    Yes
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="healthcareWorker" id="healthcareWorkerNo" value="No">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="healthcareWorker" id="healthcareWorkerU" value="Unknown">
-                                    Unknown
-                                </label>
-                            </div>
-                        </div>
+                                <p>The CDA typically create the pdf version of the CRF and the specification for the Edit Checks, which get handed off to the engineers. The engineers then turn those pdf into an electronic form on the web and programmed the validation procedures according to the CDA's specification. 
+                                </p>
+                        
+                            <h3 class="pt-2">Purpose & Motivation</h3>
+                                <p>To challenge to myself, I would like to employ the skills I picked up from the coding bootcamp to fill in the engineer role and demonstrate the following:</p>
+                                    <ul>
+                                        <li>Turn the pdf version of the CRF to an eCRF</li>
+                                        <li>Programm the Edit Checks</li>
+                                    </ul>
 
-                        <div class="col-sm-2">Laboratory worker?</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="LabWorker" id="LabWorkerY" value="Yes">
-                                    Yes
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="LabWorker" id="LabWorkerN" value="No">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1.5">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="LabWorker" id="LabWorkerU" value="Unknown">
-                                    Unknown
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                            <h3 class="pt-2">Tools</h3>
+                            <p>I use the publicly available pdf version of the <a href="https://www.who.int/publications/i/item/WHO-2019-nCoV-Clinical_CRF-2020.4" target="_blank">Global COVID-19 Clinical Platform: Rapid CRF</a> from the World Health Organization (WHO) as my starting material to develop the eCRF using HTML/CSS/Bootstrap.
+                            
+                            Programmed Edit Checks (in progress) is done using javaScript.</p>
 
-                    <div class="form-group row" style="height: 20px;">
-                        <div class="col-sm-2">Parents?</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="parents" id="parentsY" value="Yes">
-                                    Yes
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="parents" id="parentsN" value="No">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="parents" id="parentsU" value="Unknown">
-                                    Unknown
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2" style="padding-left: 40px;">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="parents" id="parentsNA" value="N/A">
-                                    N/A
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-3" style="height: 20px;">If yes, gestational weeks assessment?</div>
-                        <label for="gest" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="gest" disabled>
-                        </label>
-                        <div class="col-sm-1">weeks</div>
+                        </div>             
                     </div>
+                  </div>
                 </div>
-                <div class="col-sm-12 form-text">
-                    <i class="preg">If currently pregnant or recently pregnant (delivery within 21 days of symptom onset), complete Pregnancy CRF</i>
-                </div>
+                
+
+              
+
+
             </div>
         </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1c. DATE OF ONSET AND ADMISSION VITAL SIGNS</strong> (first available data at presentation/admission)</div>
-
-            <div class="card-body">
-                <div class='col col-form-label-sm'>
-                    <div class="form-group row">
-                        <div class="col-sm-2">
-                            <label for="sxs" class="form-check-label">Symptom onset (date of first/earliest symptom)</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control form-control-sm" id="sxs" placeholder="DD/MM/20YY">
-                        </div>
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-2">
-                            <label for="admit" class="form-check-label">Admission date at this facility</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control form-control-sm" id="admit" placeholder="DD/MM/20YY">
-                        </div>                        
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-2">Height</div>
-                        <label for="height" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="height">
-                        </label>
-                        <div class="col-sm-2">cm</div>
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-2">Weight</div>
-                        <label for="height" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="height">
-                        </label>
-                        <div class="col-sm-2">kg</div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-2">Temperature</div>
-                        <label for="temp" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="temp">
-                        </label>
-                        <div class="col-sm-2">&#8451</div>
-                        <div class="col-sm-2"></div>
-
-                        <div class="col-sm-2">Severe dehydration</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="dehyd" id="dehydYes" value="Yes">
-                                    Yes
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="dehyd" id="dehydNo" value="No">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1.5">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="dehyd" id="dehydU" value="Unknown">
-                                    Unknown
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-2">Heart rate</div>
-                        <label for="hr" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="hr">
-                        </label>
-                        <div class="col-sm-2">beats/min</div>
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-2">AVPU assessment</div>
-                        <div class="col-sm-1">
-                            <select class="form-control form-control-sm" id="avpuScale">
-                                <option></option>
-                                <option>A</option>
-                                <option>V</option>
-                                <option>P</option>
-                                <option>U</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-2">Respiratory rate</div>
-                        <label for="rr" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="rr">
-                        </label>
-                        <div class="col-sm-2">breaths/min</div>
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-2">Glasgow Coma Score (GCS/15)</div>
-                        <label for="gcs" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="gcs">
-                        </label>
-
-                    </div>
-                    
-                    <div class="form-group row">
-                        <div class="col-sm-2">BP (systolic/diastolic)</div>
-                        <label for="bp" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="bp">
-                        </label>
-                        <div class="col-sm-2">mmHg</div>
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-2">Malnutrition</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="maln" id="malnY" value="Yes">
-                                    Yes
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="maln" id="malnN" value="No">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1.5">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="maln" id="malnU" value="Unknown">
-                                    Unknown
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <div class="col-sm-2">% Oxygen saturation</div>
-                        <label for="o2sat" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="o2sat">
-                        </label>
-                        <div class="col-sm-2">
-                            <select class="form-control form-control-sm" id="o2type">
-                                <option></option>
-                                <option>Room air</option>
-                                <option>Oxygen therapy</option>
-                                <option>Unknown</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-2">Mid-upper arm circumference</div>
-                        <label for="mid_upper_arm" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="mid_upper_arm">
-                        </label>
-                        <div class="col-sm-2">mm</div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-2">Sternal capillary refill time > 2 seconds</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="capTime" id="capTimeYes" value="Yes">
-                                    Yes
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="capTime" id="capTimeNo" value="No">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-1.5">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="capTime" id="capTimeU" value="Unknown">
-                                    Unknown
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1d. CO-MORBIDITIES</strong> (existing at admission)</div>
-            <div class="card-body">
-                <div class='col col-form-label-sm' id='comorbiditiesQ'></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1e. PRE-ADMISSION AND CHRONIC MEDICATION</strong></div>
-            <div class="card-body">
-                <p class="card-text">Were any of the following taken within 14 days of admission?</p>
-                <div class='col col-form-label-sm' id='pre-admissionQ'></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1f. SIGNS AND SYMPTOMS ON ADMISSION</strong></div>
-            <div class="card-body">
-                <div class='col col-form-label-sm' id='sxsQ'></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1g. MEDICATION</strong></div>
-            <div class="card-body">
-                <p class="card-text">On the day of admission, did the patient receive any of the following?</p>
-                <div class='col col-form-label-sm' id='medQ'></div>
-            </div>
-        </div>
-
-
-        </fieldset>
-      </form>
-<!-- html js form submit -->
-<!-- Once submit button is clicked, there validation will run on everything and if there's 'failure', form wont go through -->
     </div>
-
-    <div class="container">
-        <footer id="footer">
-            <div class="row">
-            <div class="col-lg-12">
-                <p>COVID-19 CASE REPORT FORM_RAPID CORE_version 8 April 2020_revised 13 July 2020</p>
-                <p>©World Health Organization 2020. Some rights reserved. This publication is available under the licence <a href='https://creativecommons.org/licenses/by-nc-sa/3.0/igo/'>CC BY-SA 3.0 IGO</a>. This publication is adapted from the COVID-19 Case
-                    Record Forms (CRF) published by <a href='https://isaric.tghn.org/'>ISARIC</a> 
-                    on behalf of Oxford University. WHO reference number: WHO/2019-nCoV/Clinical_CRF/2020.4</p>
-            </div>
-            </div>
-        </footer>
-    </div>
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -549,4 +63,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="static/js/crf.js"></script>
   </body>
+
 </html>
