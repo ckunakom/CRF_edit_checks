@@ -187,7 +187,7 @@ for (var m = 0; m < medicationPreList.length; m++) {
                         </label>
                     </div>
                 </div>
-                <label for="medOther" class="form-check-label col-sm-2">
+                <label for="medication${m}other" class="form-check-label col-sm-2">
                     <input type="text" class="form-control form-control-sm" id="medication${m}other" disabled>
                 </label>    
             </div>`
@@ -378,7 +378,7 @@ var medAdminList = [
     {med: 'Oral/orogastric fluids', input: 'radio'},
     {med: 'Intravenous fluids', input: 'radio'},
     {med: 'Antiviral', input: 'radio'},
-    {med: '&nbsp;&nbsp;&nbsp;&nbsp;If yes:', input: 'special', 
+    {med: '&nbsp;&nbsp;&nbsp;&nbsp;If yes:', input: 'antiviral', 
         checkbox: ['Ribavirin', 'Lopinavir/Ritonavir', 'Neuraminidase inhibitor',  'Interferon alpha', 'Interferon beta', 'Other, specify:']},
     {med: 'Corticosteroid', input: 'steroid',
         route: ['Oral', 'Intravenous', 'Inhaled']}, // If yes, please provide agent and maximum daily dose:
@@ -395,48 +395,208 @@ var medAdminList = [
 var medAdminDom = "";
 
 for (var m = 0; m < medAdminList.length; m++) {
-    const {med, input} = medAdminList[m];
+    const {med, input, checkbox} = medAdminList[m];
 
-    if (input == 'special') {
+    if (input == 'antiviral') {
+
         medAdminDom += `
             <div class="form-group row" style="height: 20px;">
-                <div class="col-sm-2">${med}</div>
-                <div class="col-sm-3">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}chlr-hydrchol" value="Chloroquine/hydroxychloroquine">
-                            Chloroquine/hydroxychloroquine
-                        </label>
+                <div class="col-sm-2">${med}</div>`;
+
+                for (var c = 0; c < checkbox.length; c++ ) {
+
+                    medAdminDom += 
+                    `<div class="col-sm-3">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c]}" id="medAdmin${m}antiviral${c}" value="${checkbox[c]}">
+                                ${checkbox[c]}
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}azith" value="Azithromycin">
-                            Azithromycin
-                        </label>
+                    
+                    <div class="col-sm-3">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+1]}" id="medAdmin${m}antiviral${c+1}" value="${checkbox[c+1]}">
+                                ${checkbox[c+1]}
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}lop-rit" value="Lopinavir/Ritonavir">
-                            Lopinavir/Ritonavir
-                        </label>
+                    <div class="col-sm-3">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+2]}" id="medAdmin${m}antiviral${c+2}" value="${checkbox[c+2]}">
+                                ${checkbox[c+2]}
+                            </label>
+                        </div>
+                     </div>
                     </div>
-                </div>
-                <div class="col-sm-1">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}other" value="Other">
-                            Other:
-                        </label>
+                        
+                    <div class="form-group row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+3]}" id="medAdmin${m}antiviral${c+3}" value="${checkbox[c+3]}">
+                                    ${checkbox[c+3]}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+4]}" id="medAdmin${m}antiviral${c+4}" value="${checkbox[c+4]}">
+                                    ${checkbox[c+4]}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+5]}" id="medAdmin${m}antiviral${c+5}" value="${checkbox[c+5]}">
+                                    ${checkbox[c+5]}
+                                </label>
+                                <label for="${checkbox[c+5]}other" class="form-check-label col-sm-8">
+                                    <input type="text" class="form-control form-control-sm" id="${checkbox[c+5]}other" disabled>
+                                </label> 
+                            </div>
+                        </div>
                     </div>
+                    </div>`;
+                    break;
+                }
+
+    }
+
+    else if (input == 'steroid') {
+        medAdminDom += `
+            <div class="form-group row">
+            <div class="col-sm-9">${med}</div>
+            <div class="col-sm-1">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes">
+                        Yes
+                    </label>
                 </div>
-                <label for="medOther" class="form-check-label col-sm-2">
-                    <input type="text" class="form-control form-control-sm" id="medAdmin${m}other" disabled>
-                </label>    
+            </div>
+            <div class="col-sm-1">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-1.5">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
+                        Unknown
+                    </label>
+                </div>
+            </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-5">&nbsp;&nbsp;&nbsp;&nbsp;If yes, please complete the log line for each medication:</div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3"></div> 
+                <div class="col-sm-6">
+                    <table class="table table-sm table-bordered">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Agent</th>
+                                <th>Route</th>
+                                <th>Maximum Daily Dose</th>
+                                <th>Unit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="steroid1" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid1" disabled>
+                                    </label> 
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm" id="steroid-route1" disabled>                                            
+                                        <option></option>
+                                        <option>Oral</option>
+                                        <option>Intravenous</option>
+                                        <option>Inhaled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label for="steroid-dose1" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid-dose1" disabled>
+                                    </label> 
+                                </td>
+                                <td>
+                                    <label for="steroid-unit2" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid-unit2" disabled>
+                                    </label> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="steroid2" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid2" disabled>
+                                    </label> 
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm" id="steroid-route2" disabled>                                            
+                                        <option></option>
+                                        <option>Oral</option>
+                                        <option>Intravenous</option>
+                                        <option>Inhaled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label for="steroid-dose2" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid-dose2" disabled>
+                                    </label> 
+                                </td>
+                                <td>
+                                    <label for="teroid-unit2" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid-unit2" disabled>
+                                    </label> 
+                                </td>
+                            </tr>                                <tr>
+                            <td>
+                                <label for="steroid3" class="form-check-label">
+                                    <input type="text" class="form-control form-control-sm" id="steroid3" disabled>
+                                </label> 
+                            </td>
+                            <td>
+                                <select class="form-control form-control-sm" id="steroid-route3" disabled>                                            
+                                    <option></option>
+                                    <option>Oral</option>
+                                    <option>Intravenous</option>
+                                    <option>Inhaled</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="steroid-dose3" class="form-check-label">
+                                    <input type="text" class="form-control form-control-sm" id="steroid-dose3" disabled>
+                                </label> 
+                            </td>
+                            <td>
+                                <label for="steroid-unit3" class="form-check-label">
+                                    <input type="text" class="form-control form-control-sm" id="steroid-unit3" disabled>
+                                </label> 
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             </div>`
+        
     }
 
     else if (input == 'specify') {
@@ -468,8 +628,8 @@ for (var m = 0; m < medAdminList.length; m++) {
                     </div>
                 </div>
                 <div class="col-sm-2 text-right">If yes, specify:</div>
-                <label for="comorbOther" class="form-check-label col-sm-3">
-                    <input type="text" class="form-control form-control-sm" id="comorbOther" disabled>
+                <label for="medAdmin${m}other-abx" class="form-check-label col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="medAdmin${m}other-abx" disabled>
                 </label> 
             </div>`
     }
