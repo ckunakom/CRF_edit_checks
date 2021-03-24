@@ -391,3 +391,120 @@ var medAdminList = [
     {med: 'Angiotensin II receptor blockers (ARBs)', input: 'radio'},
     {med: 'Systemic anticoagulation', input: 'radio'}
 ];
+
+var medAdminDom = "";
+
+for (var m = 0; m < medAdminList.length; m++) {
+    const {med, input} = medAdminList[m];
+
+    if (input == 'special') {
+        medAdminDom += `
+            <div class="form-group row" style="height: 20px;">
+                <div class="col-sm-2">${med}</div>
+                <div class="col-sm-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}chlr-hydrchol" value="Chloroquine/hydroxychloroquine">
+                            Chloroquine/hydroxychloroquine
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}azith" value="Azithromycin">
+                            Azithromycin
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}lop-rit" value="Lopinavir/Ritonavir">
+                            Lopinavir/Ritonavir
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}other" value="Other">
+                            Other:
+                        </label>
+                    </div>
+                </div>
+                <label for="medOther" class="form-check-label col-sm-2">
+                    <input type="text" class="form-control form-control-sm" id="medAdmin${m}other" disabled>
+                </label>    
+            </div>`
+    }
+
+    else if (input == 'specify') {
+        medAdminDom += `
+            <div class="form-group row">
+                <div class="col-sm-4">${med}</div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes">
+                            Yes
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
+                            Unknown
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2 text-right">If yes, specify:</div>
+                <label for="comorbOther" class="form-check-label col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="comorbOther" disabled>
+                </label> 
+            </div>`
+    }
+
+    else {
+        medAdminDom += `
+            <div class="form-group row">
+                <div class="col-sm-9">${med}</div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes">
+                            Yes
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1.5">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
+                            Unknown
+                        </label>
+                    </div>
+                </div>
+            </div>`
+    }
+}
+
+document.getElementById('medQ').innerHTML = medAdminDom;
+
