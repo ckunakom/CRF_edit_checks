@@ -668,3 +668,14 @@ for (var m = 0; m < medAdminList.length; m++) {
 
 document.getElementById('medQ').innerHTML = medAdminDom;
 
+// ---------- 1h. Surpportive Care ----------//
+
+var supportDom = "";
+
+document.getElementById('supportiveQ').innerHTML = supportDom;
+
+// ---------- 1i. Surpportive Care ----------//
+
+var labDom = "";
+
+document.getElementById('labQ').innerHTML = labDom;
