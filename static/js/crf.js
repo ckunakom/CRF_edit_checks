@@ -780,9 +780,94 @@ document.getElementById('supportiveQ').innerHTML = supportDom;
 
 // ---------- 1i. Surpportive Care ----------//
 var labList = [
-    {parameter: }
+    {parameter: 'Haemoglobin',
+        units: ['g/L', 'g/dL', 'other, specify']},
+    {parameter: 'Creatinine',
+        units: ['mg/L', 'μmol/L', 'other, specify']},
+    {parameter: 'WBC count',
+        units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L', 'other, specify']},
+    {parameter: 'Sodium',
+        units: ['mEq/L or mmoL', 'other, specify']},
+    {parameter: 'Haematocrit',
+        units: ['%', 'other, specify']},
+    {parameter: 'Potassium',
+        units: ['mEq/L or mmoL', 'other, specify']},
+    {parameter: 'Platelets',
+        units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L', 'other, specify']},
+    {parameter: 'Procalcitonin',
+        units: ['ng/mL', 'μg/L', 'other, specify']},
+    {parameter: 'APTT/APTR',    
+        units: ['seconds', 'other, specify']},
+    {parameter: 'CRP',
+        units: ['mg/L', 'other, specify']},
+    {parameter: 'PT (seconds)',
+        units: ['seconds', 'other, specify']},
+    {parameter: 'LDH',
+        units: ['IU/L', 'other, specify']},
+    {parameter: 'INR',
+        units: ['N/A', 'other, specify']},
+    {parameter: 'Creatine kinase',
+        units: ['IU/L', 'UKAT/L', 'other, specify']},
+    {parameter: 'ALT/SGPT',
+        units: ['IU/L', 'other, specify']},
+    {parameter: 'Troponin',
+        units: ['ng/mL', 'μg/L', 'other, specify']},
+    {parameter: 'AST/SGOT',
+        units: ['IU/L', 'other, specify']},
+    {parameter: 'ESR',
+        units: ['mm/hour', 'other, specify']},
+    {parameter: 'Total bilirubin',
+        units: ['mg/L', 'μmol/L', 'other, specify']},
+    {parameter: 'D-dimer',
+        units: ['ng/mL', 'μg/L', 'other, specify']},
+    {parameter: 'Urea (BUN)',
+        units: ['g/L', 'mg/DL', 'mmol/L', 'other, specify']},
+    {parameter: 'Ferritin',
+        units: ['ng/mL', 'μg/L', 'other, specify']},
+    {parameter: 'Lactate',
+        units: ['mg/dL', 'mmol/L', 'other, specify']},
+    {parameter: 'IL-6',
+        units: ['pg/mL', 'other, specify']}
 ]
 
 var labDom = "";
+
+for (var l = 0; l < labList.length; l++) {
+    const {parameter} = labList[l];
+    console.log(l);
+    console.log(parameter);
+
+    labDom += `
+        <tr>
+            <td>${parameter}</td>
+            <td>
+                <label for="lab-value${parameter[l]}" class="form-check-label">
+                    <input type="text" class="form-control form-control-sm" id="lab-value${[l]}">
+                </label>
+                <div class="form-check"> 
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l]}" id="lab-not-done${[l]}" value="Not Done${[l]}"> Not Done
+                    </label>
+                </div>
+            </td>
+            <td>units here
+            </td>
+
+            <td>${parameter}</td>
+            <td>
+                <label for="lab-value${[l+1]}" class="form-check-label">
+                    <input type="text" class="form-control form-control-sm" id="lab-value${[l+1]}">
+                </label>
+                <div class="form-check"> 
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l+1]}" id="lab-not-done${[l+1]}" value="Not Done${[l+1]}"> Not Done
+                    </label> 
+                </div>
+            </td>
+            <td>units here
+            </td>
+        </tr>`;
+    l += 1;
+}
 
 document.getElementById('labQ').innerHTML = labDom;
