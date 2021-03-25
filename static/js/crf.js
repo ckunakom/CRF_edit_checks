@@ -835,10 +835,7 @@ var labDom = "";
 for (var l = 0; l < labList.length; l++) {
     const {firstParameter} = labList[l];
     const {secondParameter} = labList[l+1];
-    console.log(firstParameter)
-    // const {parameter} = labList[l];
-    // console.log(l);
-    // console.log(parameter);
+    // const {units} = labList[l];
 
     labDom += `
         <tr>
@@ -853,7 +850,7 @@ for (var l = 0; l < labList.length; l++) {
                     </label>
                 </div>
             </td>
-            <td>units here
+            <td>
             </td>
 
             <td>${secondParameter}</td>
@@ -867,10 +864,21 @@ for (var l = 0; l < labList.length; l++) {
                     </label> 
                 </div>
             </td>
-            <td>units here
+            <td>
             </td>
         </tr>`;
     l += 1;
 }
+
+// Adding units
+// {/* <div class="form-check">
+// <label class="form-check-label">
+//     <input type="radio" class="form-check-input" name="lab-unit${l}" id="lab-unit${l}" value="${units}">
+//     ${units}
+// </label>
+// </div> */}
+
+
+//
 
 document.getElementById('labQ').innerHTML = labDom;
