@@ -780,68 +780,71 @@ document.getElementById('supportiveQ').innerHTML = supportDom;
 
 // ---------- 1i. Surpportive Care ----------//
 var labList = [
-    {parameter: 'Haemoglobin',
+    {firstParameter: 'Haemoglobin',
         units: ['g/L', 'g/dL', 'other, specify']},
-    {parameter: 'Creatinine',
+    {secondParameter: 'Creatinine',
         units: ['mg/L', 'μmol/L', 'other, specify']},
-    {parameter: 'WBC count',
+    {firstParameter: 'WBC count',
         units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L', 'other, specify']},
-    {parameter: 'Sodium',
+    {secondParameter: 'Sodium',
         units: ['mEq/L or mmoL', 'other, specify']},
-    {parameter: 'Haematocrit',
+    {firstParameter: 'Haematocrit',
         units: ['%', 'other, specify']},
-    {parameter: 'Potassium',
+    {secondParameter: 'Potassium',
         units: ['mEq/L or mmoL', 'other, specify']},
-    {parameter: 'Platelets',
+    {firstParameter: 'Platelets',
         units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L', 'other, specify']},
-    {parameter: 'Procalcitonin',
+    {secondParameter: 'Procalcitonin',
         units: ['ng/mL', 'μg/L', 'other, specify']},
-    {parameter: 'APTT/APTR',    
+    {firstParameter: 'APTT/APTR',    
         units: ['seconds', 'other, specify']},
-    {parameter: 'CRP',
+    {secondParameter: 'CRP',
         units: ['mg/L', 'other, specify']},
-    {parameter: 'PT (seconds)',
+    {firstParameter: 'PT (seconds)',
         units: ['seconds', 'other, specify']},
-    {parameter: 'LDH',
+    {secondParameter: 'LDH',
         units: ['IU/L', 'other, specify']},
-    {parameter: 'INR',
+    {firstParameter: 'INR',
         units: ['N/A', 'other, specify']},
-    {parameter: 'Creatine kinase',
+    {secondParameter: 'Creatine kinase',
         units: ['IU/L', 'UKAT/L', 'other, specify']},
-    {parameter: 'ALT/SGPT',
+    {firstParameter: 'ALT/SGPT',
         units: ['IU/L', 'other, specify']},
-    {parameter: 'Troponin',
+    {secondParameter: 'Troponin',
         units: ['ng/mL', 'μg/L', 'other, specify']},
-    {parameter: 'AST/SGOT',
+    {firstParameter: 'AST/SGOT',
         units: ['IU/L', 'other, specify']},
-    {parameter: 'ESR',
+    {secondParameter: 'ESR',
         units: ['mm/hour', 'other, specify']},
-    {parameter: 'Total bilirubin',
+    {firstParameter: 'Total bilirubin',
         units: ['mg/L', 'μmol/L', 'other, specify']},
-    {parameter: 'D-dimer',
+    {secondParameter: 'D-dimer',
         units: ['ng/mL', 'μg/L', 'other, specify']},
-    {parameter: 'Urea (BUN)',
+    {firstParameter: 'Urea (BUN)',
         units: ['g/L', 'mg/DL', 'mmol/L', 'other, specify']},
-    {parameter: 'Ferritin',
+    {secondParameter: 'Ferritin',
         units: ['ng/mL', 'μg/L', 'other, specify']},
-    {parameter: 'Lactate',
+    {firstParameter: 'Lactate',
         units: ['mg/dL', 'mmol/L', 'other, specify']},
-    {parameter: 'IL-6',
+    {secondParameter: 'IL-6',
         units: ['pg/mL', 'other, specify']}
 ]
 
 var labDom = "";
 
 for (var l = 0; l < labList.length; l++) {
-    const {parameter} = labList[l];
-    console.log(l);
-    console.log(parameter);
+    const {firstParameter} = labList[l];
+    const {secondParameter} = labList[l+1];
+    console.log(firstParameter)
+    // const {parameter} = labList[l];
+    // console.log(l);
+    // console.log(parameter);
 
     labDom += `
         <tr>
-            <td>${parameter}</td>
+            <td>${firstParameter}</td>
             <td>
-                <label for="lab-value${parameter[l]}" class="form-check-label">
+                <label for="lab-value${[l]}" class="form-check-label">
                     <input type="text" class="form-control form-control-sm" id="lab-value${[l]}">
                 </label>
                 <div class="form-check"> 
@@ -853,7 +856,7 @@ for (var l = 0; l < labList.length; l++) {
             <td>units here
             </td>
 
-            <td>${parameter}</td>
+            <td>${secondParameter}</td>
             <td>
                 <label for="lab-value${[l+1]}" class="form-check-label">
                     <input type="text" class="form-control form-control-sm" id="lab-value${[l+1]}">
