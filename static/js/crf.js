@@ -404,7 +404,6 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-2">${med}</div>`;
 
                 for (var c = 0; c < checkbox.length; c++ ) {
-
                     medAdminDom += 
                     `<div class="col-sm-3">
                         <div class="form-check">
@@ -508,7 +507,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-3"></div> 
                 <div class="col-sm-6">
                     <table class="table table-sm table-bordered">
-                        <thead class="text-center">
+                        <thead class="text-center" id="steroid-table">
                             <tr>
                                 <th>Agent</th>
                                 <th>Route</th>
@@ -574,7 +573,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                             </td>
                             <td>
                                 <select class="form-control form-control-sm" id="steroid-route3" disabled>                                            
-                                    <option></option>
+                                    <option></option>   
                                     <option>Oral</option>
                                     <option>Intravenous</option>
                                     <option>Inhaled</option>
@@ -669,12 +668,120 @@ for (var m = 0; m < medAdminList.length; m++) {
 document.getElementById('medQ').innerHTML = medAdminDom;
 
 // ---------- 1h. Surpportive Care ----------//
+var supportList = [
+    {care: 'ICU or high dependency unit admission', input: 'radio'},
+    {care: 'Oxygen therapy', input: 'radio'},
+    {care: '&nbsp;&nbsp;&nbsp;&nbsp;If yes:', input: 'o2'},
+    {care: 'Non-invasive ventilation (e.g. BIPAP/CPAP)', input: 'radio'},
+    {care: 'Invasive ventilation (any)', input: 'radio'},
+    {care: '&nbsp;&nbsp;&nbsp;&nbsp;If yes, what were the following values closest to 08:00:', input: 'inv-vent',
+        vent: ['PEEP (cm H<sub>2</sub>O)', 'FiO<sub>2</sub> (%)', 'Plateau pressure (cm H<sub>2</sub>O)', 'PaCO<sub>2</sub>', 'PaO<sub>2</sub>']},
+    {care: 'Extracorporeal (ECMO) support', input: 'radio'},
+    {care: 'Prone position', input: 'radio'},
+    {care: 'Inotropes/vasopressors', input: 'radio'}
+]
 
 var supportDom = "";
+
+for (var s = 0; s < supportList.length; s++) {
+    const {care, input, vent} = supportList[s];
+
+    if (input == 'o2') {
+        supportDom += `
+            <div class="form-group row">
+                <div class="col-sm-1">${care}</div>
+                <div class="col-sm-1 text-right">O<sub>2</sub> flow:</div>
+                <div class="col-sm-2">
+                    <select class="form-control form-control-sm" id="o2-flow" disabled>                                            
+                        <option></option>
+                        <option>1–5 L/min</option>
+                        <option>6–10 L/min</option>
+                        <option>11–15 L/min</option>
+                        <option>>15 L/min</option>
+                        <option>Unkown</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 text-right">Source of oxygen:</div>
+                    <div class="col-sm-2">
+                        <select class="form-control form-control-sm" id="o2-source" disabled>                                            
+                            <option></option>
+                            <option>Piped</option>
+                            <option>Cylinder</option>
+                            <option>Concentrator</option>
+                            <option>Unkown</option>
+                        </select>
+                    </div>
+                <div class="col-sm-1 text-right">Interface:</div>
+                    <div class="col-sm-3">
+                        <select class="form-control form-control-sm" id="o2-interface" disabled>
+                            <option></option>                                            
+                            <option>Nasal prongs</option>
+                            <option>HF nasal cannula</option>
+                            <option>Mask</option>
+                            <option>Mask with reservoir</option>
+                            <option>CPAP/NIV mask</option>
+                            <option>Unkown</option>
+                        </select>
+                    </div>
+            </div>`
+    }
+
+    else if (input == 'inv-vent') {
+        supportDom += `
+        <div class="form-group row">
+            <div class="col-sm-10">${care}</div>
+        </div>`;
+
+        for (var v = 0; v < vent.length; v++ ) {
+            supportDom += `
+            <div class="form-group row">
+                <div class="col-sm-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vent[v]}</div>
+                    <label for="gest" class="form-check-label col-sm-2">
+                        <input type="text" class="form-control form-control-sm" id="inv-vent${[v]}" disabled>
+                    </label>
+            </div>`
+        };
+        
+    }
+
+    else {
+        supportDom += `
+            <div class="form-group row">
+                <div class="col-sm-9">${care}</div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}Yes" value="Yes">
+                            Yes
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}No" value="No">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1.5">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}U" value="Unknown">
+                            Unknown
+                        </label>
+                    </div>
+                </div>
+            </div>`
+    }
+}
 
 document.getElementById('supportiveQ').innerHTML = supportDom;
 
 // ---------- 1i. Surpportive Care ----------//
+var labList = [
+    {parameter: }
+]
 
 var labDom = "";
 

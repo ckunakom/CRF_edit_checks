@@ -12,6 +12,8 @@ To challenge to myself, I would like to employ the skills I picked up from the c
 ### eCRF -WORK IN PROGRESS-
 Using the publicly available pdf version of the Global COVID-19 Clinical Platform: Rapid Core Case Report Form (CRF) taken from the [World Health Organization (WHO)](https://www.who.int/publications/i/item/WHO-2019-nCoV-Clinical_CRF-2020.4), I will create the eCRF out of Module 1 of the form in an html page following a similar format of the pdf version with some tweaks to the outline to make it easier to follow or more user-friendly. I use Bootstrap and some of my own CSS for formating.
 
+I googled my way into completing this project from the beginning until the end, so this is the proof of my ability to learn as I go.
+
 📌The page is not responsive at this time. 
 
 ### Edit Checks -NEXT STEP-
