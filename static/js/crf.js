@@ -233,9 +233,9 @@ var sxsList = [
     {sxs: 'Lower chest indrawing', type: 'right'},
     {sxs: 'Cough', type: 'left'}, // with sputum and with haemoptysis
     {sxs: 'Headache', type: 'right'},
-    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;with sputum<br />&nbsp;&nbsp;&nbsp;&nbsp;production', type: 'left'},
+    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;with sputum<br />&nbsp;&nbsp;&nbsp;&nbsp;production', type: 'cough'},
     {sxs: 'Altered consciousness<br />/confusion', type: 'right'},
-    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;with haemoptysis', type: 'left'},
+    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;with haemoptysis', type: 'cough'},
     {sxs: 'Seizures', type: 'right'},
     {sxs: 'Sore throat', type: 'left'},
     {sxs: 'Abdominal pain', type: 'right'},
@@ -290,6 +290,35 @@ for (var s = 0; s < sxsList.length; s++) {
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
+                    Unknown
+                </label>
+            </div>
+        </div>`;
+    }
+
+    else if (type == 'cough') {
+        sxsDom += `<div class="form-group row">
+        <div class="col-sm-2">${sxs}</div>
+        <div class="col-sm-1">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes" disabled>
+                    Yes
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-1">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No" disabled>
+                    No
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown" disabled>
                     Unknown
                 </label>
             </div>

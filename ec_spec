@@ -1,0 +1,10 @@
+1a. CLINICAL INCLUSION CRITERIA
+- One of the field is blank: One or more fields have not been complete. Please complete all the fields.
+- All of the field is 'No': The participant does not meet the clinical inclusion criteria, please verify.
+- Date of Enrollment is in the future: The Date of Enrollment is in the future, please verify.
+- Date of Enrollment is not in the correct date format: Date of Enrollment is not in the correct format, please verify.
+
+1b. DEMOGRAPHICS
+- One of the field is blank: One or more fields have not been complete. Please complete all the fields.
+- Date of birth < Date of enrollment: The Date of Enrollment is before the participant's Date of Birth, please verify.
+- Sex at bith is 'Male' and gestational week assessment is complete: 'Male' has been indicated for Sex at bith; however, 'Yes' have been indicated for 'Pregnancy?'. Please verify.

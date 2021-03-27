@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="static/css/cosmo.css">
     <link rel="stylesheet" href="static/css/style.css">
 
-    <title>Global COVID-19 Clinical Platform
-        RAPID CORE eCRF</title>
+    <title>Edit Checks </title>
     <link rel="icon" type="image/png" href="https://ckunakom.github.io/img/logo.png">
   </head>
   
@@ -63,7 +62,7 @@
                         <div class="col-sm-1">
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="fever" id="feverRadioY" value="Yes">
+                                <input type="radio" class="form-check-input" name="fever" id="feverRadioY" value="feverY">
                                 Yes
                             </label>
                         </div>
@@ -71,7 +70,7 @@
                         <div class="col-sm-1">
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="fever" id="feverRadioN" value="No">
+                                <input type="radio" class="form-check-input" name="fever" id="feverRadioN" value="feverN">
                                 No
                             </label>
                         </div>
@@ -83,7 +82,7 @@
                         <div class="col-sm-1">
                             <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="cough" id="coughRadioY" value="Yes">
+                                <input type="radio" class="form-check-input" name="cough" id="coughRadioY" value="coughY">
                                 Yes
                             </label>
                             </div>
@@ -91,7 +90,7 @@
                         <div class="col-sm-1">
                             <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="cougj" id="coughRadioN" value="No">
+                                <input type="radio" class="form-check-input" name="cougj" id="coughRadioN" value="coughN">
                                 No
                             </label>
                             </div>
@@ -108,7 +107,7 @@
                         <div class="col-sm-1">
                             <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sob" id="sobRadioY" value="Yes">
+                                <input type="radio" class="form-check-input" name="sob" id="sobRadioY" value="sobY">
                                 Yes
                             </label>
                             </div>
@@ -116,7 +115,7 @@
                         <div class="col-sm-1">
                             <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="sob" id="sobRadioN" value="No">
+                                <input type="radio" class="form-check-input" name="sob" id="sobRadioN" value="sobN">
                                 No
                             </label>
                             </div>
@@ -128,7 +127,7 @@
                         <div class="col-sm-1">
                             <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="clinInc" id="clinRadioY" value="Yes">
+                                <input type="radio" class="form-check-input" name="clinInc" id="clinRadioY" value="clinIncY">
                                 Yes
                             </label>
                             </div>
@@ -136,7 +135,7 @@
                         <div class="col-sm-1">
                             <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="clinInc" id="optionsRadioN" value="No">
+                                <input type="radio" class="form-check-input" name="clinInc" id="optionsRadioN" value="clinIncN">
                                 No
                             </label>
                             </div>
@@ -145,7 +144,12 @@
                 </div>
             </div>
         </div>
-
+        
+        <div id=inclusion-1a-ec></div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-outline-secondary" id="inclusion-1a">Submit</button>
+        </div>
+        
         <div class="card bg-light mb-3">
             <div class="card-header"><strong>1b. DEMOGRAPHICS</strong></div>
             <div class="card-body">
@@ -185,20 +189,13 @@
                         <div class="col-sm-2">
                             <input type="text" class="form-control form-control-sm" id="dob" placeholder="DD/MM/YYYY">
                         </div>
-                        <div class="col-sm-3">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="dob-unknown" id="healthcareWorkerU" value="Unknown">
-                                    Unknown
-                                </label>
-                            </div>
-                        </div>
+                        <div class="col-sm-3"></div>
                         <div class="col-sm-2"> Age (If date of birth is unknown)</div>
                         <label for="age" class="form-check-label col-sm-1">
-                            <input type="text" class="form-control form-control-sm" id="age" disabled>
+                            <input type="text" class="form-control form-control-sm" id="age">
                         </label>
                         <div class="col-sm-2">
-                            <select class="form-control form-control-sm" id="ageUnit" disabled>
+                            <select class="form-control form-control-sm" id="ageUnit">
                                 <option></option>
                                 <option>years</option>
                                 <option>months</option>
@@ -262,7 +259,7 @@
                     </div>
 
                     <div class="form-group row" style="height: 20px;">
-                        <div class="col-sm-2">Pregnant?</div>
+                        <div class="col-sm-2">Parents?</div>
                         <div class="col-sm-1">
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -589,6 +586,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="static/js/crf.js"></script>
-    <script src="static/js/draft.js"></script>
+    <script src="static/js/ec.js"></script>
   </body>
 </html>

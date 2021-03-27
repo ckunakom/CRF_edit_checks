@@ -1,5 +1,5 @@
 #preg {
-    color:#FF0000;
+    color:#180fa0;
     font-size: 0.875rem;
 }
 
@@ -13,4 +13,8 @@ h1, h2, h3, h4, h5 {
 
 #lab-table th {
     font-weight: 500;
+}
+
+#inclusion-1a {
+    margin-bottom: 1rem;
 }
