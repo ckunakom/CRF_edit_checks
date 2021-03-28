@@ -8,9 +8,17 @@
         position: relative;
         padding-left: 15px;
     }
-    #preg {
+    /* #preg {
         position: relative;
         padding-bottom: 30px;
+    } */
+}
+
+/*
+@media (max-width: 991) {
+    .col-sm-sp {
+        position: relative;
+        padding-left: 15px;
     }
 }
 
@@ -34,14 +42,14 @@
         position: relative;
         padding-bottom: 30px;
     }
-}
+} */
 
 /* Extra */
 #preg {
     color:#180fa0;
     font-size: 0.875rem;
     height: 20px;
-    padding-top: 15px;
+    /* padding-top: 15px; */
 }
 
 h1, h2, h3, h4, h5 {
