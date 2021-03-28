@@ -51,7 +51,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             </div>            
             </div>
 
-            <div class="form-group row sp-height">
+            <div class="form-group row">
             <div class="col-sm-1">HIV</div>
             <div class="col-sm-2">
                 <select class="form-control form-control-sm" id="comorb${c+1}" required>
@@ -82,7 +82,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}Yes" value="Yes">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}Yes" value="Yes" required />
                         Yes
                     </label>
                 </div>
@@ -90,7 +90,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}No" value="No">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}No" value="No" required />
                         No
                     </label>
                 </div>
@@ -98,7 +98,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-3">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown" required />
                         Unknown
                     </label>
                 </div>
@@ -111,7 +111,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}Y" value="Yes">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}Y" value="Yes" required />
                         Yes
                     </label>
                 </div>
@@ -119,7 +119,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}N" value="No">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}N" value="No" required />
                         No
                     </label>
                 </div>
@@ -127,7 +127,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-sp">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown" required />
                         Unknown
                     </label>
                 </div>
@@ -143,54 +143,62 @@ var medicationPreList = [
     {medication: 'Angiotensin convertin g enzyme inhibitors (ACE inhibitors)', type: 'med'},
     {medication: 'Angiotensin II receptor blockers (ARBs)', type: 'med'},
     {medication: 'Non-steroidal anti-inflammatory (NSAID)', type: 'med'},
-    {medication: 'Antiviral', type: 'antiviral'}
+    {medication: 'Antiviral', type: 'med'},
+    {medication: '&nbsp;&nbsp;&nbsp;&nbsp;If yes:', type: 'antiviral',
+        viralmed: 
+            ['Chloroquine/hydroxychloroquine',
+            'Azithromycin',
+            'Lopinavir/Ritonavir']}
 ];
 
 var medDom = "";
 
 for (var m = 0; m < medicationPreList.length; m++) {
-    const {medication, type} = medicationPreList[m];
+    const {medication, type, viralmed} = medicationPreList[m];
 
     if (type == 'antiviral') {
         medDom += `
-            <div class="form-group row sp-height">
-                <div class="col-sm-2">${medication}</div>
-                <div class="col-sm-3">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}chlr-hydrchol" value="Chloroquine/hydroxychloroquine">
-                            Chloroquine/hydroxychloroquine
-                        </label>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}azith" value="Azithromycin">
-                            Azithromycin
-                        </label>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}lop-rit" value="Lopinavir/Ritonavir">
-                            Lopinavir/Ritonavir
-                        </label>
-                    </div>
-                </div>
+            <div class="form-group row">
+                <div class="col-sm-1">${medication}</div>`
+
+        for (var v = 0; v < viralmed.length; v++) {
+            if (viralmed[v].length >20) {
+                medDom += `
+                    <div class="col-sm-3">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="medication-antiviral${v}" id="medication${viralmed[v]}" value="${viralmed[v]}" disabled required />
+                                ${viralmed[v]}
+                            </label>
+                        </div>
+                    </div>`
+            }
+            else {
+                medDom += `
+                    <div class="col-sm-2">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" name="medication-antiviral${v}" id="medication${viralmed[v]}" value="${viralmed[v]}" disabled required />
+                                ${viralmed[v]}
+                            </label>
+                        </div>
+                    </div>`
+                }
+        }
+        medDom += `
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="medication${m}" id="medication${m}other" value="Other">
+                            <input type="checkbox" class="form-check-input" name="medication-antiviral-other" id="medication-antiviral-other" value="Other" disabled required />
                             Other:
                         </label>
                     </div>
                 </div>
-                <label for="medication${m}other" class="form-check-label col-sm-2">
-                    <input type="text" class="form-control form-control-sm" id="medication${m}other" disabled>
+                <label for="medication-antiviral-specify" class="form-check-label col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="medication-antiviral-specify" disabled>
                 </label>    
             </div>`
+        
     }
 
     else {
@@ -200,7 +208,7 @@ for (var m = 0; m < medicationPreList.length; m++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}Yes" value="Yes">
+                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}Yes" value="Yes" required />
                             Yes
                         </label>
                     </div>
@@ -208,7 +216,7 @@ for (var m = 0; m < medicationPreList.length; m++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}No" value="No">
+                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}No" value="No" required />
                             No
                         </label>
                     </div>
@@ -216,7 +224,7 @@ for (var m = 0; m < medicationPreList.length; m++) {
                 <div class="col-sm-sp">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}U" value="Unknown">
+                            <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}U" value="Unknown" required />
                             Unknown
                         </label>
                     </div>
@@ -225,7 +233,7 @@ for (var m = 0; m < medicationPreList.length; m++) {
     }
 }
 
-document.getElementById('pre-admissionQ').innerHTML = medDom;
+document.getElementById('pre-admission-q').innerHTML = medDom;
 
 // ---------- 1f. sign and symptoms ----------//
 var sxsList = [
@@ -258,8 +266,9 @@ var sxsList = [
     {sxs: 'Shortness of breath', type: 'left'},
     {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;If bleeding, <br />&nbsp;&nbsp;&nbsp;&nbspspecify site(s):', type: 'bleeding'}, // bleeding specify
     {sxs: 'Stroke: ischaemic stroke', type: 'left'},
-    {sxs: 'Stroke: intracerebral haemorrhage', type: 'right'},
-    {sxs: 'Other', type: 'other'}
+    {sxs: 'Other', type: 'right'},
+    {sxs: 'Stroke: intracerebral haemorrhage', type: 'left'},
+    {sxs: '&nbsp;&nbsp;&nbsp;&nbsp;If yes, specify:', type: 'other'},    
 ];
 
 var sxsDom = "";
@@ -273,7 +282,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-1">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes" required />
                     Yes
                 </label>
             </div>
@@ -281,7 +290,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-1">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No" required />
                     No
                 </label>
             </div>
@@ -289,7 +298,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-3">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown" required />
                     Unknown
                 </label>
             </div>
@@ -302,7 +311,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-1">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes" disabled>
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes" disabled required />
                     Yes
                 </label>
             </div>
@@ -310,7 +319,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-1">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No" disabled>
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No" disabled required />
                     No
                 </label>
             </div>
@@ -318,7 +327,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-3">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown" disabled>
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown" disabled required />
                     Unknown
                 </label>
             </div>
@@ -331,7 +340,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-1">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes" required />
                     Yes
                 </label>
             </div>
@@ -339,7 +348,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-1">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No" required />
                     No
                 </label>
             </div>
@@ -347,7 +356,7 @@ for (var s = 0; s < sxsList.length; s++) {
         <div class="col-sm-sp">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
+                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown" required />
                     Unknown
                 </label>
             </div>    
@@ -358,49 +367,24 @@ for (var s = 0; s < sxsList.length; s++) {
     else if (type == 'bleeding') {
 
         sxsDom += `<div class="col-sm-2" >${sxs}</div>
-        <label for="bleedingOther" class="form-check-label col-sm-3">
-            <input type="text" class="form-control form-control-sm" id="bleedingOther" disabled>
-        </label>        
-        </div>`;
+            <label for="bleedingOther" class="form-check-label col-sm-3">
+                <input type="text" class="form-control form-control-sm" id="bleedingOther" disabled required />
+            </label>        
+            </div>`;
     }
     
     else if (type == 'other') { 
     
-        sxsDom += `</div><div class="form-group row sp-height">
-        <div class="col-sm-2">${sxs}</div>
-        <div class="col-sm-1">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}Yes" value="Yes">
-                    Yes
+        sxsDom += `
+            <div class="col-sm-2">${sxs}</div>
+                <label for="sxsOther" class="form-check-label col-sm-3">
+                    <input type="text" class="form-control form-control-sm" id="sxsOther" disabled required />
                 </label>
-            </div>
-        </div>
-        <div class="col-sm-1">
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}No" value="No">
-                No
-            </label>
-        </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
-                    Unknown
-                </label>
-            </div>    
-        </div>
-        <div class="col-sm-2">If yes, specify</div>
-        <label for="sxsOther" class="form-check-label col-sm-3">
-            <input type="text" class="form-control form-control-sm" id="sxsOther" disabled>
-        </label>
-        </div>`;
+            </div>`;
     }
 }
 
-document.getElementById('sxsQ').innerHTML = sxsDom;
+document.getElementById('sxs-q').innerHTML = sxsDom;
 
 // ---------- 1g. Medication ----------//
 var medAdminList = [
@@ -429,7 +413,7 @@ for (var m = 0; m < medAdminList.length; m++) {
     if (input == 'antiviral') {
 
         medAdminDom += `
-            <div class="form-group row sp-height">
+            <div class="form-group row">
                 <div class="col-sm-2">${med}</div>`;
 
                 for (var c = 0; c < checkbox.length; c++ ) {
@@ -437,7 +421,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                     `<div class="col-sm-3">
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c]}" id="medAdmin${m}antiviral${c}" value="${checkbox[c]}">
+                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c]}" id="medAdmin${m}antiviral${c}" value="${checkbox[c]}" required />
                                 ${checkbox[c]}
                             </label>
                         </div>
@@ -446,7 +430,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                     <div class="col-sm-3">
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+1]}" id="medAdmin${m}antiviral${c+1}" value="${checkbox[c+1]}">
+                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+1]}" id="medAdmin${m}antiviral${c+1}" value="${checkbox[c+1]}" required />
                                 ${checkbox[c+1]}
                             </label>
                         </div>
@@ -454,7 +438,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                     <div class="col-sm-3">
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+2]}" id="medAdmin${m}antiviral${c+2}" value="${checkbox[c+2]}">
+                                <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+2]}" id="medAdmin${m}antiviral${c+2}" value="${checkbox[c+2]}" required />
                                 ${checkbox[c+2]}
                             </label>
                         </div>
@@ -466,7 +450,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                         <div class="col-sm-3">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+3]}" id="medAdmin${m}antiviral${c+3}" value="${checkbox[c+3]}">
+                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+3]}" id="medAdmin${m}antiviral${c+3}" value="${checkbox[c+3]}" required />
                                     ${checkbox[c+3]}
                                 </label>
                             </div>
@@ -475,7 +459,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                         <div class="col-sm-3">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+4]}" id="medAdmin${m}antiviral${c+4}" value="${checkbox[c+4]}">
+                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+4]}" id="medAdmin${m}antiviral${c+4}" value="${checkbox[c+4]}" required />
                                     ${checkbox[c+4]}
                                 </label>
                             </div>
@@ -484,11 +468,11 @@ for (var m = 0; m < medAdminList.length; m++) {
                         <div class="col-sm-4">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+5]}" id="medAdmin${m}antiviral${c+5}" value="${checkbox[c+5]}">
+                                    <input type="checkbox" class="form-check-input" name="antiviral${checkbox[c+5]}" id="medAdmin${m}antiviral${c+5}" value="${checkbox[c+5]}" required />
                                     ${checkbox[c+5]}
                                 </label>
                                 <label for="${checkbox[c+5]}other" class="form-check-label col-sm-8">
-                                    <input type="text" class="form-control form-control-sm" id="${checkbox[c+5]}other" disabled>
+                                    <input type="text" class="form-control form-control-sm" id="${checkbox[c+5]}other" disabled required />
                                 </label> 
                             </div>
                         </div>
@@ -506,7 +490,7 @@ for (var m = 0; m < medAdminList.length; m++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes">
+                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes" required />
                         Yes
                     </label>
                 </div>
@@ -514,7 +498,7 @@ for (var m = 0; m < medAdminList.length; m++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No">
+                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No" required />
                         No
                     </label>
                 </div>
@@ -522,7 +506,7 @@ for (var m = 0; m < medAdminList.length; m++) {
             <div class="col-sm-sp">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
+                        <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown" required />
                         Unknown
                     </label>
                 </div>
@@ -548,11 +532,11 @@ for (var m = 0; m < medAdminList.length; m++) {
                             <tr>
                                 <td>
                                     <label for="steroid1" class="form-check-label">
-                                        <input type="text" class="form-control form-control-sm" id="steroid1" disabled>
+                                        <input type="text" class="form-control form-control-sm" id="steroid1" disabled required />
                                     </label> 
                                 </td>
                                 <td>
-                                    <select class="form-control form-control-sm" id="steroid-route1" disabled>                                            
+                                    <select class="form-control form-control-sm" id="steroid-route1" disabled required>                                            
                                         <option></option>
                                         <option>Oral</option>
                                         <option>Intravenous</option>
@@ -561,23 +545,23 @@ for (var m = 0; m < medAdminList.length; m++) {
                                 </td>
                                 <td>
                                     <label for="steroid-dose1" class="form-check-label">
-                                        <input type="text" class="form-control form-control-sm" id="steroid-dose1" disabled>
+                                        <input type="text" class="form-control form-control-sm" id="steroid-dose1" disabled required />
                                     </label> 
                                 </td>
                                 <td>
-                                    <label for="steroid-unit2" class="form-check-label">
-                                        <input type="text" class="form-control form-control-sm" id="steroid-unit2" disabled>
+                                    <label for="steroid-unit1" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid-unit1" disabled required />
                                     </label> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label for="steroid2" class="form-check-label">
-                                        <input type="text" class="form-control form-control-sm" id="steroid2" disabled>
+                                        <input type="text" class="form-control form-control-sm" id="steroid2" disabled required />
                                     </label> 
                                 </td>
                                 <td>
-                                    <select class="form-control form-control-sm" id="steroid-route2" disabled>                                            
+                                    <select class="form-control form-control-sm" id="steroid-route2" disabled required>                                            
                                         <option></option>
                                         <option>Oral</option>
                                         <option>Intravenous</option>
@@ -586,38 +570,39 @@ for (var m = 0; m < medAdminList.length; m++) {
                                 </td>
                                 <td>
                                     <label for="steroid-dose2" class="form-check-label">
-                                        <input type="text" class="form-control form-control-sm" id="steroid-dose2" disabled>
+                                        <input type="text" class="form-control form-control-sm" id="steroid-dose2" disabled required />
                                     </label> 
                                 </td>
                                 <td>
                                     <label for="teroid-unit2" class="form-check-label">
-                                        <input type="text" class="form-control form-control-sm" id="steroid-unit2" disabled>
+                                        <input type="text" class="form-control form-control-sm" id="steroid-unit2" disabled required />
                                     </label> 
                                 </td>
-                            </tr>                                <tr>
-                            <td>
-                                <label for="steroid3" class="form-check-label">
-                                    <input type="text" class="form-control form-control-sm" id="steroid3" disabled>
-                                </label> 
-                            </td>
-                            <td>
-                                <select class="form-control form-control-sm" id="steroid-route3" disabled>                                            
-                                    <option></option>   
-                                    <option>Oral</option>
-                                    <option>Intravenous</option>
-                                    <option>Inhaled</option>
-                                </select>
-                            </td>
-                            <td>
-                                <label for="steroid-dose3" class="form-check-label">
-                                    <input type="text" class="form-control form-control-sm" id="steroid-dose3" disabled>
-                                </label> 
-                            </td>
-                            <td>
-                                <label for="steroid-unit3" class="form-check-label">
-                                    <input type="text" class="form-control form-control-sm" id="steroid-unit3" disabled>
-                                </label> 
-                            </td>
+                            </tr>                                
+                            <tr>
+                                <td>
+                                    <label for="steroid3" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid3" disabled required />
+                                    </label> 
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm" id="steroid-route3" disabled required>                                            
+                                        <option></option>   
+                                        <option>Oral</option>
+                                        <option>Intravenous</option>
+                                        <option>Inhaled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label for="steroid-dose3" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid-dose3" disabled required />
+                                    </label> 
+                                </td>
+                                <td>
+                                    <label for="steroid-unit3" class="form-check-label">
+                                        <input type="text" class="form-control form-control-sm" id="steroid-unit3" disabled required />
+                                    </label> 
+                                </td>
                         </tr>
                         </tbody>
                     </table>
@@ -634,7 +619,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes" required />
                             Yes
                         </label>
                     </div>
@@ -642,7 +627,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No" required />
                             No
                         </label>
                     </div>
@@ -650,14 +635,14 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown" required />
                             Unknown
                         </label>
                     </div>
                 </div>
                 <div class="col-sm-2 text-right">If yes, specify:</div>
                 <label for="medAdmin${m}other-abx" class="form-check-label col-sm-3">
-                    <input type="text" class="form-control form-control-sm" id="medAdmin${m}other-abx" disabled>
+                    <input type="text" class="form-control form-control-sm" id="medAdmin${m}other-abx" disabled required />
                 </label> 
             </div>`
     }
@@ -669,7 +654,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}Yes" value="Yes" required />
                             Yes
                         </label>
                     </div>
@@ -677,7 +662,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}No" value="No" required />
                             No
                         </label>
                     </div>
@@ -685,7 +670,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-sp">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
+                            <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown" required />
                             Unknown
                         </label>
                     </div>
@@ -694,7 +679,7 @@ for (var m = 0; m < medAdminList.length; m++) {
     }
 }
 
-document.getElementById('medQ').innerHTML = medAdminDom;
+document.getElementById('med-q').innerHTML = medAdminDom;
 
 // ---------- 1h. Surpportive Care ----------//
 var supportList = [
@@ -766,7 +751,7 @@ for (var s = 0; s < supportList.length; s++) {
             <div class="form-group row">
                 <div class="col-sm-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vent[v]}</div>
                     <label for="gest" class="form-check-label col-sm-2">
-                        <input type="text" class="form-control form-control-sm" id="inv-vent${[v]}" disabled>
+                        <input type="text" class="form-control form-control-sm" id="inv-vent${[v]}" disabled required />
                     </label>
             </div>`
         };
@@ -780,7 +765,7 @@ for (var s = 0; s < supportList.length; s++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}Yes" value="Yes">
+                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}Yes" value="Yes" required />
                             Yes
                         </label>
                     </div>
@@ -788,7 +773,7 @@ for (var s = 0; s < supportList.length; s++) {
                 <div class="col-sm-1">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}No" value="No">
+                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}No" value="No" required />
                             No
                         </label>
                     </div>
@@ -796,7 +781,7 @@ for (var s = 0; s < supportList.length; s++) {
                 <div class="col-sm-sp">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}U" value="Unknown">
+                            <input type="radio" class="form-check-input" name="care${s}" id="care${s}U" value="Unknown" required />
                             Unknown
                         </label>
                     </div>
@@ -805,7 +790,7 @@ for (var s = 0; s < supportList.length; s++) {
     }
 }
 
-document.getElementById('supportiveQ').innerHTML = supportDom;
+document.getElementById('supportive-q').innerHTML = supportDom;
 
 // ---------- 1i. Surpportive Care ----------//
 var labList = [
@@ -871,11 +856,11 @@ for (var l = 0; l < labList.length; l++) {
             <td>${firstParameter}</td>
             <td>
                 <label for="lab-value${[l]}" class="form-check-label">
-                    <input type="text" class="form-control form-control-sm" id="lab-value${[l]}">
+                    <input type="text" class="form-control form-control-sm" id="lab-value${[l]}" required />
                 </label>
                 <div class="form-check"> 
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l]}" id="lab-not-done${[l]}" value="Not Done${[l]}"> Not Done
+                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l]}" id="lab-not-done${[l]}" value="Not Done${[l]}" required /> Not Done
                     </label>
                 </div>
             </td>
@@ -885,11 +870,11 @@ for (var l = 0; l < labList.length; l++) {
             <td>${secondParameter}</td>
             <td>
                 <label for="lab-value${[l+1]}" class="form-check-label">
-                    <input type="text" class="form-control form-control-sm" id="lab-value${[l+1]}">
+                    <input type="text" class="form-control form-control-sm" id="lab-value${[l+1]}" required />
                 </label>
                 <div class="form-check"> 
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l+1]}" id="lab-not-done${[l+1]}" value="Not Done${[l+1]}"> Not Done
+                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l+1]}" id="lab-not-done${[l+1]}" value="Not Done${[l+1]}" required /> Not Done
                     </label> 
                 </div>
             </td>
@@ -910,4 +895,4 @@ for (var l = 0; l < labList.length; l++) {
 
 //
 
-document.getElementById('labQ').innerHTML = labDom;
+document.getElementById('lab-q').innerHTML = labDom;
