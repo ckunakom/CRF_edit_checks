@@ -264,7 +264,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row" style="height: 20px;">
+                        <div class="form-group row sp-height">
                             <div class="col-sm-2">Pregnant?</div>
                             <div class="col-sm-1">
                                 <div class="form-check">
@@ -456,7 +456,7 @@
                             <label for="sbp" class="form-check-label col-sm-1">
                                 <input type="number" min="0" class="form-control form-control-sm" id="sbp" required />
                             </label>
-                            /
+                            
                             <label for="dbp" class="form-check-label col-sm-1">
                                 <input type="number" min="0" class="form-control form-control-sm" id="dbp" required />
                             </label>
@@ -543,74 +543,93 @@
         </fieldset>
     </form>
 
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1d. CO-MORBIDITIES</strong></div>
-            <div class="card-body">
-                <p class="card-text">Existing at admission:</p>
-                <div class='col col-form-label-sm' id='comorbiditiesQ'></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1e. PRE-ADMISSION AND CHRONIC MEDICATION</strong></div>
-            <div class="card-body">
-                <p class="card-text">Were any of the following taken within 14 days of admission?</p>
-                <div class='col col-form-label-sm' id='pre-admissionQ'></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1f. SIGNS AND SYMPTOMS ON ADMISSION</strong></div>
-            <div class="card-body">
-                <div class='col col-form-label-sm' id='sxsQ'></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1g. MEDICATION</strong></div>
-            <div class="card-body">
-                <p class="card-text">On the day of admission, did the patient receive any of the following?</p>
-                <div class="col col-form-label-sm" id="medQ"></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1h. SUPPORTIVE CARE</strong></div>
-            <div class="card-body">
-                <p class="card-text">On the day of admission, did the patient receive any of the following?</p>
-                <div class="col col-form-label-sm" id="supportiveQ"></div>
-            </div>
-        </div>
-
-        <div class="card bg-light mb-3">
-            <div class="card-header"><strong>1i. LABORATORY RESULTS ON ADMISSION</strong></div>
-            <div class="card-body">
-                <p class="card-text"></p>
-                <div class="col col-form-label-sm">
-                    <table class="table table-sm table-bordered">
-                        <thead class="text-center" id="lab-table">
-                            <tr>
-                                <th>Parameter</th>
-                                <th>Value</th>
-                                <th>Units</th>
-                                <th>Parameter</th>
-                                <th>Value</th>
-                                <th>Units</th>
-                            </tr>
-                        </thead>
-                        <tbody id="labQ">
-
-                        </tbody>
-                    </table>
-                    
+    <form id=comorbid>
+        <fieldset>
+            <div class="card bg-light mb-3">
+                <div class="card-header"><strong>1d. CO-MORBIDITIES</strong></div>
+                <div class="card-body">
+                    <p class="card-text">Existing at admission:</p>
+                    <div class='col col-form-label-sm' id='comorbidities-q'></div>
                 </div>
             </div>
-        </div>
-
-
         </fieldset>
-        <!-- <input type="submit" value="Submit"> -->
-      </form>
+    </form>
+
+    <form id=pre-admit-med>
+        <fieldset>
+            <div class="card bg-light mb-3">
+                <div class="card-header"><strong>1e. PRE-ADMISSION AND CHRONIC MEDICATION</strong></div>
+                <div class="card-body">
+                    <p class="card-text">Were any of the following taken within 14 days of admission?</p>
+                    <div class='col col-form-label-sm' id='pre-admissionQ'></div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <form id=sign-sxs>
+        <fieldset>
+            <div class="card bg-light mb-3">
+                <div class="card-header"><strong>1f. SIGNS AND SYMPTOMS ON ADMISSION</strong></div>
+                <div class="card-body">
+                    <div class='col col-form-label-sm' id='sxsQ'></div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <form id=medications>
+        <fieldset>
+            <div class="card bg-light mb-3">
+                <div class="card-header"><strong>1g. MEDICATION</strong></div>
+                <div class="card-body">
+                    <p class="card-text">On the day of admission, did the patient receive any of the following?</p>
+                    <div class="col col-form-label-sm" id="medQ"></div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+            <div class="card bg-light mb-3">
+                <div class="card-header"><strong>1h. SUPPORTIVE CARE</strong></div>
+                <div class="card-body">
+                    <p class="card-text">On the day of admission, did the patient receive any of the following?</p>
+                    <div class="col col-form-label-sm" id="supportiveQ"></div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <form id=lab-admit>
+        <fieldset>
+            <div class="card bg-light mb-3">
+                <div class="card-header"><strong>1i. LABORATORY RESULTS ON ADMISSION</strong></div>
+                <div class="card-body">
+                    <p class="card-text"></p>
+                    <div class="col col-form-label-sm">
+                        <table class="table table-sm table-bordered">
+                            <thead class="text-center" id="lab-table">
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                    <th>Units</th>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                    <th>Units</th>
+                                </tr>
+                            </thead>
+                            <tbody id="labQ">
+
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+
 <!-- html js form submit -->
 <!-- Once submit button is clicked, there validation will run on everything and if there's 'failure', form wont go through -->
     </div>

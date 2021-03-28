@@ -1,64 +1,28 @@
-/* Copying Bootstrap's format */
 .col-sm-sp {
     position: relative;
 }
 
-@media (max-width: 576px) {
-    .col-sm-sp {
-        position: relative;
-        padding-left: 15px;
-    }
-    /* #preg p {
-        position: relative;
-        height: 20px;
-        padding-top: inherit;
-    }
-} */
-
-/*
-@media (max-width: 991) {
-    .col-sm-sp {
-        position: relative;
-        padding-left: 15px;
-    }
-}
- */
-/* @media (max-width: 768px) {
-    .col-sm-sp {
-        position: relative;
-        margin-left: 500px;
-    } */
-    /* #preg {
-        position: relative;
-        padding-bottom: 30px;
-    }     */
-}
- /*
-@media (min-width: 1024px) {
-    .col-sm-sp {
-        position: relative;
-        margin-left: 685px;
-    }
-    #preg {
-        position: relative;
-        padding-bottom: 30px;
-    }
-} */
-
-/* Extra */
-#preg {
+/* div#preg {
     color:#180fa0;
     font-size: 0.875rem;
     height: 10px;
     /* padding-top: 15px; */
-}
+/* } */
 
-/* #preg p {
+
+div#preg {
+    color:#2780e3;
     font-style: italic;
-} */
+    height: 15px;
+    padding-top: 10px;
+}
 
 h1, h2, h3, h4, h5 {
     font-weight: 400;
+}
+
+.sp-height {
+    height: 20px;
 }
 
 #steroid-table th {
@@ -85,3 +49,62 @@ h1, h2, h3, h4, h5 {
 .complete p {
     color: rgb(24, 199, 24);
 }
+
+@media (min-width: 100px) {
+    .col-sm-sp {
+        position: relative;
+        padding-left: 15px;
+    }
+    div#preg p {
+        position: relative;
+        margin-top: 20px;
+        font-size: 0.65rem;
+        max-width: 60%;
+        /* flex: 0 0 50%; */
+    }
+} 
+
+@media (min-width: 576px) {
+    .col-sm-sp {
+        position: relative;
+        padding-left: 15px;
+        max-width: 5%;
+    }
+    div#preg p {
+        position: relative;
+        margin-top: 10px;
+        font-size: 0.65rem;
+        max-width: 60%;
+        /* flex: 0 0 50%; */
+    }
+} 
+
+@media (min-width: 765px) {
+    div#preg p {
+        position: relative;
+        margin-top: 0px;
+        font-size: 0.825rem;
+        max-width: 100%;
+        /* flex: 0 0 50%; */
+    }
+} 
+
+@media (min-width: 1200px) {
+    .col-sm-sp {
+        position: relative;
+        padding-left: 15px;
+        margin-left: 0;
+    }
+} 
+
+
+
+/* @media (max-width: 575px) {
+    div#preg p {
+        position: relative;
+        margin-top: 20px;
+        font-size: 0.65rem;
+        max-width: 80%;
+        /* flex: 0 0 50%; */
+    }
+}  */

@@ -1,7 +1,7 @@
 //---------- 1d. Co-Morbidities ----------//
 var comorbidityList = [
-    {disease: 'Chronic cardiac disease (not hypertension)', type: 'left'},
-    {disease: 'Diabetes', type: 'right' },
+    {disease:'Chronic cardiac disease (not hypertension)', type: 'left'},
+    {disease:'Diabetes', type: 'right' },
     {disease:'Hypertension', type: 'left'},  
     {disease:'Current smoking', type:  'right'}, 
     {disease:'Chronic pulmonary disease', type: 'left'},
@@ -28,7 +28,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}Yes" value="Yes">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}Yes" value="Yes" required />
                         Yes
                     </label>
                 </div>
@@ -36,7 +36,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-1">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}No" value="No">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}No" value="No" required />
                         No
                     </label>
                 </div>
@@ -44,17 +44,17 @@ for (var c = 0; c < comorbidityList.length; c++) {
             <div class="col-sm-sp">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown">
+                        <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown" required />
                         Unknown
                     </label>
                 </div>
             </div>            
             </div>
 
-            <div class="form-group row" style="height: 20px;">
+            <div class="form-group row sp-height">
             <div class="col-sm-1">HIV</div>
             <div class="col-sm-2">
-                <select class="form-control form-control-sm" id="comorb${c+1}">
+                <select class="form-control form-control-sm" id="comorb${c+1}" required>
                     <option></option>
                     <option>Yes (on ART)</option>
                     <option>Yes (not on ART)</option>
@@ -136,7 +136,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
     }
 }
 
-document.getElementById('comorbiditiesQ').innerHTML = comorbDom;
+document.getElementById('comorbidities-q').innerHTML = comorbDom;
 
 // ---------- 1e. pre-admission ----------//
 var medicationPreList = [
@@ -153,7 +153,7 @@ for (var m = 0; m < medicationPreList.length; m++) {
 
     if (type == 'antiviral') {
         medDom += `
-            <div class="form-group row" style="height: 20px;">
+            <div class="form-group row sp-height">
                 <div class="col-sm-2">${medication}</div>
                 <div class="col-sm-3">
                     <div class="form-check">
@@ -366,7 +366,7 @@ for (var s = 0; s < sxsList.length; s++) {
     
     else if (type == 'other') { 
     
-        sxsDom += `</div><div class="form-group row style="height: 20px;">
+        sxsDom += `</div><div class="form-group row sp-height">
         <div class="col-sm-2">${sxs}</div>
         <div class="col-sm-1">
             <div class="form-check">
@@ -429,7 +429,7 @@ for (var m = 0; m < medAdminList.length; m++) {
     if (input == 'antiviral') {
 
         medAdminDom += `
-            <div class="form-group row" style="height: 20px;">
+            <div class="form-group row sp-height">
                 <div class="col-sm-2">${med}</div>`;
 
                 for (var c = 0; c < checkbox.length; c++ ) {
