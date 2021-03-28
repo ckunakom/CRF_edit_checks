@@ -14,7 +14,7 @@ Using the publicly available pdf version of the Global COVID-19 Clinical Platfor
 
 I googled my way into completing this project from the beginning until the end, so this is the proof of my ability to learn as I go.
 
-📌The page is not responsive at this time. 
+The page is responsive!
 
 ### Edit Checks -NEXT STEP-
 I will complete the following in order to deploy programmed Edit Checks:

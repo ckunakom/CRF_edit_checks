@@ -41,7 +41,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
                     </label>
                 </div>
             </div>
-            <div class="col-sm-1.5">
+            <div class="col-sm-sp">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown">
@@ -124,7 +124,7 @@ for (var c = 0; c < comorbidityList.length; c++) {
                     </label>
                 </div>
             </div>
-            <div class="col-sm-1.5">
+            <div class="col-sm-sp">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="comorb${c}" id="comorb${c}U" value="Unknown">
@@ -213,7 +213,7 @@ for (var m = 0; m < medicationPreList.length; m++) {
                         </label>
                     </div>
                 </div>
-                <div class="col-sm-1.5">
+                <div class="col-sm-sp">
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="medication${m}" id="medication${m}U" value="Unknown">
@@ -344,7 +344,7 @@ for (var s = 0; s < sxsList.length; s++) {
                 </label>
             </div>
         </div>
-        <div class="col-sm-1.5">
+        <div class="col-sm-sp">
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="sxs${s}" id="sxs${s}U" value="Unknown">
@@ -519,7 +519,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                     </label>
                 </div>
             </div>
-            <div class="col-sm-1.5">
+            <div class="col-sm-sp">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
@@ -682,7 +682,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                         </label>
                     </div>
                 </div>
-                <div class="col-sm-1.5">
+                <div class="col-sm-sp">
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="medAdmin${m}" id="medAdmin${m}U" value="Unknown">
@@ -793,7 +793,7 @@ for (var s = 0; s < supportList.length; s++) {
                         </label>
                     </div>
                 </div>
-                <div class="col-sm-1.5">
+                <div class="col-sm-sp">
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="care${s}" id="care${s}U" value="Unknown">
