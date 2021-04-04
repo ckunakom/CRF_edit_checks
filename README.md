@@ -1,3 +1,5 @@
+Update 4-APR-2021: Still working on finishing off the last section of the eCRF. I am still fishing around on how to write a loop that will get the unit to display automatically without me hardcoding each `<td>` in html.
+
 # eCRF & Edit Checks
 As a Clinical Data Analyst (CDA), my task include coming up with all kinds of data cleaning process to ensure that clinical data entered into the database is clean. One of the strategy is to have Edit Checks in place on the eCRF (electronic case report form) in order to eliminate a good chunk of manual data review/data cleaning tasks from the clinical monitors which ultimately saves time and human resources. Additionally, adding validations like Edit Checks enable data cleaning process at a vert early stage, data entry.
 
