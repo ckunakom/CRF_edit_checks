@@ -152,10 +152,10 @@
   </form>
 
 
-    <form id="demographic">
-        <fieldset>  
-            <div class="card bg-light mb-3">
-                <div class="card-header"><strong>1b. DEMOGRAPHICS</strong></div>
+  <form id="demographic">
+    <fieldset>  
+        <div class="card bg-light mb-3">
+            <div class="card-header"><strong>1b. DEMOGRAPHICS</strong></div>
                 <div class="card-body">
                     <div class='col col-form-label-sm'>
                         <div class="form-group row">
@@ -196,7 +196,7 @@
                             <div class="col-sm-3">
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="dob-unknown" id="healthcareWorkerU" value="Unknown" required />
+                                        <input type="radio" class="form-check-input" name="dob-unknown" id="DOB-unknown" value="Unknown" required />
                                         Unknown
                                     </label>
                                 </div>
@@ -269,7 +269,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row" style="height: 20px;">
+                        <div class="form-group row">
                             <div class="col-sm-2">Pregnant?</div>
                             <div class="col-sm-1">
                                 <div class="form-check">
@@ -303,19 +303,24 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-sm-3" style="height: 20px;">If yes, gestational weeks assessment?</div>
+                            <div class="col-sm-3">If yes, gestational weeks assessment?</div>
                             <label for="gest" class="form-check-label col-sm-1">
                                 <input type="number" class="form-control form-control-sm" id="gest" disabled>
                             </label>
                             <div class="col-sm-1">weeks</div>
                         </div>
-                        <div class="row card-text" id="preg">
+                        <div class="form-group row card-text" id="preg">
                             <div class="col-sm-12">
-                                <p><i>If currently pregnant or recently pregnant (delivery within 21 days of symptom onset), complete Pregnancy CRF.</i></p>
+                                <p>If currently pregnant or recently pregnant (delivery within 21 days of symptom onset), complete Pregnancy CRF.</p>
                             </div>
                         </div>
                     </div>
-                </div>        
+                </div>
+                <div class="discrepancy" id="demographic-1b-ec0"></div>
+                <div class="discrepancy" id="demographic-1b-ec1"></div>
+                <div class="discrepancy" id="demographic-1b-ec2"></div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-outline-secondary" id="inclusion-1a" onclick="demographics()">Submit</button>        
             </div>
         </fieldset>
     </form>

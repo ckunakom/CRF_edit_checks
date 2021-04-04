@@ -43,7 +43,10 @@ var headerInclusion = document.getElementById("header-inclusion");
 function handleForm(event) { event.preventDefault(); } 
 headerInclusion.addEventListener('submit', handleForm);
 
-
+//---------- 1b. Demographics ----------//
+function demographics () {
+    
+}
 
 
 //---------- 1d. Co-Morbidities ----------//
