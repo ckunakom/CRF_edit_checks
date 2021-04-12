@@ -28,7 +28,7 @@ function inclusion() {
     // If pass, show the green message
     document.getElementById("inclusion-1a-ec0").innerHTML = pass ? `<div class="complete"><p>All fields have been saved complete!</p></div>` : "";
     
-    // ------- REMINDER: This is what line 29 do but shorter ---------
+    // ------- REMINDER to self: This is what line 29 is do but shorter ---------
     // if (pass) {
     //     document.getElementById("inclusion-1a-ec0").innerHTML = `<div class="complete"><p>All fields have been saved complete!</p></div>`;
     // }

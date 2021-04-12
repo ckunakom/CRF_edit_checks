@@ -46,6 +46,14 @@ h1, h2, h3, h4, h5 {
     color: rgb(24, 199, 24);
 }
 
+.lab-units-table {
+    width: 200px;
+}
+
+.unit-other {
+    width: 45px;
+}
+
 /* Need to fix preg id... */
 @media (min-width: 100px) {
     .col-sm-sp {

@@ -520,7 +520,7 @@ for (var m = 0; m < medAdminList.length; m++) {
                 <div class="col-sm-3"></div> 
                 <div class="col-sm-6">
                     <table class="table table-sm table-bordered">
-                        <thead class="text-center" id="steroid-table">
+                        <thead class="text-center table-secondary" id="steroid-table">
                             <tr>
                                 <th>Agent</th>
                                 <th>Route</th>
@@ -794,105 +794,246 @@ document.getElementById('supportive-q').innerHTML = supportDom;
 
 // ---------- 1i. Surpportive Care ----------//
 var labList = [
-    {firstParameter: 'Haemoglobin',
-        units: ['g/L', 'g/dL', 'other, specify']},
-    {secondParameter: 'Creatinine',
-        units: ['mg/L', 'μmol/L', 'other, specify']},
-    {firstParameter: 'WBC count',
-        units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L', 'other, specify']},
-    {secondParameter: 'Sodium',
-        units: ['mEq/L or mmoL', 'other, specify']},
-    {firstParameter: 'Haematocrit',
-        units: ['%', 'other, specify']},
-    {secondParameter: 'Potassium',
-        units: ['mEq/L or mmoL', 'other, specify']},
-    {firstParameter: 'Platelets',
-        units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L', 'other, specify']},
-    {secondParameter: 'Procalcitonin',
-        units: ['ng/mL', 'μg/L', 'other, specify']},
-    {firstParameter: 'APTT/APTR',    
-        units: ['seconds', 'other, specify']},
-    {secondParameter: 'CRP',
-        units: ['mg/L', 'other, specify']},
-    {firstParameter: 'PT (seconds)',
-        units: ['seconds', 'other, specify']},
-    {secondParameter: 'LDH',
-        units: ['IU/L', 'other, specify']},
-    {firstParameter: 'INR',
-        units: ['N/A', 'other, specify']},
-    {secondParameter: 'Creatine kinase',
-        units: ['IU/L', 'UKAT/L', 'other, specify']},
-    {firstParameter: 'ALT/SGPT',
-        units: ['IU/L', 'other, specify']},
-    {secondParameter: 'Troponin',
-        units: ['ng/mL', 'μg/L', 'other, specify']},
-    {firstParameter: 'AST/SGOT',
-        units: ['IU/L', 'other, specify']},
-    {secondParameter: 'ESR',
-        units: ['mm/hour', 'other, specify']},
-    {firstParameter: 'Total bilirubin',
-        units: ['mg/L', 'μmol/L', 'other, specify']},
-    {secondParameter: 'D-dimer',
-        units: ['ng/mL', 'μg/L', 'other, specify']},
-    {firstParameter: 'Urea (BUN)',
-        units: ['g/L', 'mg/DL', 'mmol/L', 'other, specify']},
-    {secondParameter: 'Ferritin',
-        units: ['ng/mL', 'μg/L', 'other, specify']},
-    {firstParameter: 'Lactate',
-        units: ['mg/dL', 'mmol/L', 'other, specify']},
-    {secondParameter: 'IL-6',
-        units: ['pg/mL', 'other, specify']}
+    {
+        firstColumn: {
+            index: 0,
+            parameter: 'Haemoglobin',
+            units: ['g/L', 'g/dL']        
+        },
+        secondColumn: {
+            index: 1,
+            parameter: 'Creatinine',
+            units: ['mg/L', 'μmol/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 2,
+            parameter: 'WBC count',
+            units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L']        
+        },
+        secondColumn: {
+            index: 3,
+            parameter: 'Sodium',
+            units: ['mEq/L or mmoL']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 4,
+            parameter: 'Haematocrit',
+            units: ['%']        
+        },
+        secondColumn: {
+            index: 5,
+            parameter: 'Potassium',
+            units: ['mEq/L or mmoL']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 6,
+            parameter: 'Platelets',
+            units: ['/mm<sup>3</sup>', 'G/L or x10<sup>9</sup>/L']        
+        },
+        secondColumn: {
+            index: 7,
+            parameter: 'Procalcitonin',
+            units: ['ng/mL', 'μg/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 8,
+            parameter: 'APTT/APTR',
+            units: ['seconds']        
+        },
+        secondColumn: {
+            index: 9,
+            parameter: 'CRP',
+            units: ['mg/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 10,
+            parameter: 'PT (seconds)',
+            units: ['seconds']        
+        },
+        secondColumn: {
+            index: 11,
+            parameter: 'LDH',
+            units: ['IU/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 12,
+            parameter: 'PT (seconds)',
+            units: ['seconds']        
+        },
+        secondColumn: {
+            index: 13,
+            parameter: 'LDH',
+            units: ['IU/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 14,
+            parameter: 'INR',
+            units: ['N/A']        
+        },
+        secondColumn: {
+            index: 15,
+            parameter: 'Creatine kinase',
+            units: ['IU/L', 'UKAT/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 16,
+            parameter: 'ALT/SGPT',
+            units: ['IU/L']        
+        },
+        secondColumn: {
+            index: 17,
+            parameter: 'Troponin',
+            units: ['ng/mL', 'μg/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 16,
+            parameter: 'AST/SGOT',
+            units: ['IU/L']        
+        },
+        secondColumn: {
+            index: 17,
+            parameter: 'ESR',
+            units: ['mm/hour']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 18,
+            parameter: 'Total bilirubin',
+            units: ['mg/L', 'μmol/L']        
+        },
+        secondColumn: {
+            index: 19,
+            parameter: 'D-dimer',
+            units: ['ng/mL', 'μg/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 20,
+            parameter: 'Urea (BUN)',
+            units: ['g/L', 'mg/DL', 'mmol/L']        
+        },
+        secondColumn: {
+            index: 21,
+            parameter: 'Ferritin',
+            units: ['ng/mL', 'μg/L']            
+        }
+    },
+    {
+        firstColumn: {
+            index: 22,
+            parameter: 'Lactate',
+            units: ['mg/DL', 'mmol/L']        
+        },
+        secondColumn: {
+            index: 23,
+            parameter: 'IL-6',
+            units: ['pg/mL']            
+        }
+    }
 ]
 
 var labDom = "";
 
+// Keep track of index for units to be used in the loop to give unique names to the ids 
+var startingIndex = 0;
+
 for (var l = 0; l < labList.length; l++) {
-    const {firstParameter} = labList[l];
-    const {secondParameter} = labList[l+1];
-    // const {units} = labList[l];
+    const {firstColumn, secondColumn} = labList[l];
+
+    // Define first- and second- variables to be used for the two sides of the table
+    var firstParameter = firstColumn.parameter;
+    var firstUnits = firstColumn.units;
+    var firstIndex = firstColumn.index;
+    var secondParameter = secondColumn.parameter;
+    var secondUnits = secondColumn.units;
+    var secondIndex = secondColumn.index;
 
     labDom += `
         <tr>
             <td>${firstParameter}</td>
-            <td>
-                <label for="lab-value${[l]}" class="form-check-label">
-                    <input type="text" class="form-control form-control-sm" id="lab-value${[l]}" required />
-                </label>
-                <div class="form-check"> 
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l]}" id="lab-not-done${[l]}" value="Not Done${[l]}" required /> Not Done
-                    </label>
-                </div>
-            </td>
-            <td>
-            </td>
-
+            ${parameterValue(firstIndex)}
+            ${parameterUnits(firstUnits, startingIndex)}`
+    // Why are we doing this? -------------------------------- to write
+    startingIndex += firstUnits.length + 1;
+        
+    labDom += `
             <td>${secondParameter}</td>
-            <td>
-                <label for="lab-value${[l+1]}" class="form-check-label">
-                    <input type="text" class="form-control form-control-sm" id="lab-value${[l+1]}" required />
-                </label>
-                <div class="form-check"> 
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="lab-not-done${[l+1]}" id="lab-not-done${[l+1]}" value="Not Done${[l+1]}" required /> Not Done
-                    </label> 
-                </div>
-            </td>
-            <td>
-            </td>
+            ${parameterValue(secondIndex)}
+            ${parameterUnits(secondUnits, startingIndex)}
         </tr>`;
-    l += 1;
+    startingIndex += secondUnits.length + 1;
+    
 }
 
-// Adding units
-// {/* <div class="form-check">
-// <label class="form-check-label">
-//     <input type="radio" class="form-check-input" name="lab-unit${l}" id="lab-unit${l}" value="${units}">
-//     ${units}
-// </label>
-// </div> */}
+// Function to add input box and not done check boxes in td for each lab value
+function parameterValue(index) {
+    
+    return `<td>
+                <label for="lab-value${index}" class="form-check-label">
+                    <input type="text" class="form-control form-control-sm" id="lab-value${index}" required />
+                </label>
+                <div class="form-check"> 
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="lab-not-done${index}" id="lab-not-done${index}" value="Not Done${index}" required /> Not Done
+                    </label>
+                </div>
+            </td>`;
+}
 
+// Function to add list of units for each lab value
+function parameterUnits(units, startingIndex) {
+    // Why are we doing this? -------------------------------- to write
+    var result = "";
 
-//
+    // Why are we doing this? -------------------------------- to write
+    var id = startingIndex;
+
+    // Loop for each lab's list of units
+    for  (var u = 0; u < units.length; u++) {
+        
+        var unit = units[u]
+        
+        result += `<div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="lab-unit${startingIndex}" id="lab-unit${id}" value="${unit}">
+                            ${unit}
+                        </label>
+                    </div>`
+        id += 1;
+    }
+    
+    return `<td class="lab-units-table">${result}
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="lab-unit${startingIndex}" id="lab-unit-other${id}" value="other">
+                        Other, specify:
+                    </label>
+                    <label for="other${id}" class="form-check-label col-sm-1">
+                        <input type="text" class="form-control form-control-sm unit-other" id="other${id}" disabled required />
+                    </label> 
+                </div>
+            </td>`;
+
+}
 
 document.getElementById('lab-q').innerHTML = labDom;
