@@ -162,12 +162,12 @@
             <div class="discrepancy" id="inclusion-1a-ec0"></div>
             <div class="discrepancy" id="inclusion-1a-ec1"></div>
             <div class="discrepancy" id="inclusion-1a-ec2"></div>
+            <div class="discrepancy" id="inclusion-1a-ec3"></div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="submit" class="btn btn-outline-secondary submit-button" id="inclusion-1a" onclick="inclusion()">Submit</button>
             </div>
         </fieldset>
     </form>
-
 
   <form id="demographic">
     <fieldset>  
@@ -220,7 +220,7 @@
                             </div>
                             <div class="col-sm-2"> Age (If date of birth is unknown)</div>
                             <label for="age" class="form-check-label col-sm-1">
-                                <input type="number" class="form-control form-control-sm" id="age" disabled>
+                                <input type="number" min=1 class="form-control form-control-sm" id="age" disabled>
                             </label>
                             <div class="col-sm-2">
                                 <select class="form-control form-control-sm" id="ageUnit" disabled>
@@ -322,7 +322,7 @@
                             </div>
                             <div class="col-sm-3">If yes, gestational weeks assessment?</div>
                             <label for="gest" class="form-check-label col-sm-1">
-                                <input type="number" class="form-control form-control-sm" id="gest" disabled>
+                                <input type="number" min=0 class="form-control form-control-sm" id="gest" disabled>
                             </label>
                             <div class="col-sm-1">weeks</div>
                         </div>
