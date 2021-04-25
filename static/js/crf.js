@@ -792,7 +792,7 @@ for (var s = 0; s < supportList.length; s++) {
 
 document.getElementById('supportive-q').innerHTML = supportDom;
 
-// ---------- 1i. Surpportive Care ----------//
+// ---------- 1i. Lab Result ----------// Dorfy to my rescue
 var labList = [
     {
         firstColumn: {
@@ -869,35 +869,23 @@ var labList = [
     {
         firstColumn: {
             index: 12,
-            parameter: 'PT (seconds)',
-            units: ['seconds']        
-        },
-        secondColumn: {
-            index: 13,
-            parameter: 'LDH',
-            units: ['IU/L']            
-        }
-    },
-    {
-        firstColumn: {
-            index: 14,
             parameter: 'INR',
             units: ['N/A']        
         },
         secondColumn: {
-            index: 15,
+            index: 13,
             parameter: 'Creatine kinase',
             units: ['IU/L', 'UKAT/L']            
         }
     },
     {
         firstColumn: {
-            index: 16,
+            index: 14,
             parameter: 'ALT/SGPT',
             units: ['IU/L']        
         },
         secondColumn: {
-            index: 17,
+            index: 15,
             parameter: 'Troponin',
             units: ['ng/mL', 'μg/L']            
         }
@@ -954,7 +942,7 @@ var labList = [
 
 var labDom = "";
 
-// Keep track of index for units to be used in the loop to give unique names to the ids 
+// Keep track of index for units to be used in the loop to give unique id's name 
 var startingIndex = 0;
 
 for (var l = 0; l < labList.length; l++) {
@@ -972,25 +960,21 @@ for (var l = 0; l < labList.length; l++) {
         <tr>
             <td>${firstParameter}</td>
             ${parameterValue(firstIndex)}
-            ${parameterUnits(firstUnits, startingIndex)}`
-    // Why are we doing this? -------------------------------- to write
-    startingIndex += firstUnits.length + 1;
+            ${parameterUnits(firstIndex, firstUnits, startingIndex)}`
         
     labDom += `
             <td>${secondParameter}</td>
             ${parameterValue(secondIndex)}
-            ${parameterUnits(secondUnits, startingIndex)}
+            ${parameterUnits(secondIndex, secondUnits, startingIndex)}
         </tr>`;
-    startingIndex += secondUnits.length + 1;
-    
 }
 
-// Function to add input box and not done check boxes in td for each lab value
+// Function to add input box and not done check boxes in td for each lab value - using `index` key from labList to give unique ID
 function parameterValue(index) {
     
-    return `<td>
+    return `<td class="value-width">
                 <label for="lab-value${index}" class="form-check-label">
-                    <input type="text" class="form-control form-control-sm" id="lab-value${index}" required />
+                    <input type="text" class="form-control form-control-sm lab-value" id="lab-value${index}" required />
                 </label>
                 <div class="form-check"> 
                     <label class="form-check-label">
@@ -1001,39 +985,39 @@ function parameterValue(index) {
 }
 
 // Function to add list of units for each lab value
-function parameterUnits(units, startingIndex) {
-    // Why are we doing this? -------------------------------- to write
-    var result = "";
+function parameterUnits(index, units, startingIndex) {
+    // Define the DOM - a loop is involved for adding units, so we need to add to the DOM each time
+    var parameterUnitsDom = "";
 
-    // Why are we doing this? -------------------------------- to write
+    // Call `startingIndex` for tallying to give each unit's a unique id
     var id = startingIndex;
 
     // Loop for each lab's list of units
     for  (var u = 0; u < units.length; u++) {
-        
+
         var unit = units[u]
         
-        result += `<div class="form-check">
+        parameterUnitsDom += `<div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="lab-unit${startingIndex}" id="lab-unit${id}" value="${unit}">
+                            <input type="radio" class="form-check-input" name="lab-unit${index}" id="lab${index}-unit${id}" value="${unit}">
                             ${unit}
                         </label>
                     </div>`
+        // Once the loop is done, add 1 to give each unit its own uniqe index, within that parameter
         id += 1;
     }
     
-    return `<td class="lab-units-table">${result}
+    return `<td class="lab-units-table">${parameterUnitsDom}
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="lab-unit${startingIndex}" id="lab-unit-other${id}" value="other">
+                        <input type="radio" class="form-check-input" name="lab-unit${index}" id="lab-unit-other${index}" value="other">
                         Other, specify:
                     </label>
-                    <label for="other${id}" class="form-check-label col-sm-1">
-                        <input type="text" class="form-control form-control-sm unit-other" id="other${id}" disabled required />
+                    <label for="other${index}" class="form-check-label col-sm-1">
+                        <input type="text" class="form-control form-control-sm unit-other" id="other${index}" disabled required />
                     </label> 
                 </div>
             </td>`;
-
 }
 
 document.getElementById('lab-q').innerHTML = labDom;

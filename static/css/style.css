@@ -9,7 +9,6 @@
     /* padding-top: 15px; */
 /* } */
 
-
 div#preg {
     color:#2780e3;
     font-style: italic;
@@ -46,15 +45,24 @@ h1, h2, h3, h4, h5 {
     color: rgb(24, 199, 24);
 }
 
+/* Need to add to media */
+.value-width {
+    width: 125px;
+}
+
 .lab-units-table {
     width: 200px;
 }
 
 .unit-other {
+    width: 60px;
+}
+
+.lab-value {
     width: 45px;
 }
 
-/* Need to fix preg id... */
+
 @media (min-width: 100px) {
     .col-sm-sp {
         position: relative;
@@ -72,6 +80,15 @@ h1, h2, h3, h4, h5 {
         padding-left: 15px;
         max-width: 5%;
     }
+
+    .lab-units-table {
+        width: 100px;
+    }
+    
+    .unit-other {
+        width: 40px;
+    }
+    
 } 
 
 @media (min-width: 765px) {
@@ -81,6 +98,23 @@ h1, h2, h3, h4, h5 {
         max-width: 100%;
         font-size: 0.825rem;
     }
+
+    .value-width {
+        width: 125px;
+    }
+
+    .lab-units-table {
+        width: 180px;
+    }
+    
+    .unit-other {
+        width: 50px;
+    }
+    
+    .lab-value {
+        width: 45px;
+    }
+    
 } 
 
 @media (min-width: 1200px) {
@@ -88,5 +122,21 @@ h1, h2, h3, h4, h5 {
         position: relative;
         padding-left: 15px;
         margin-left: 0;
+    }
+
+    .value-width {
+        width: 125px;
+    }
+
+    .lab-units-table {
+        width: 200px;
+    }
+    
+    .unit-other {
+        width: 60px;
+    }
+    
+    .lab-value {
+        width: 45px;
     }
 } 
