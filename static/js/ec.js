@@ -45,8 +45,42 @@ headerInclusion.addEventListener('submit', handleForm);
 
 //---------- 1b. Demographics ----------//
 function demographics () {
+ 
+
+
+
     
+
+
+
 }
 
+// Date of birth is Unknown,  Age field enabled
+var dobInput = document.getElementById("dob");
+var dobUnk = document.getElementById("DOB-unknown");
+var ageInput = document.getElementById("age");
+var ageUnitInput = document.getElementById("ageUnit");
+
+dobUnk.addEventListener("change", unknownDob);
+
+function unknownDob() {
+    if (dobUnk.checked == true) {
+        dobInput.disabled = true;
+        ageInput.disabled = false;
+        ageUnitInput.disabled = false;
+    }
+
+    else {
+        dobInput.disabled = false;
+        ageInput.disabled = true;
+        ageUnitInput.disabled = true;
+    }
+
+    // find a way to clear the input
+}
+
+// Pregnant is Yes, gestational field enabled
+
+// TODO: Go through all the unknown field that has disabled input and change checkbox to radio button!
 
 //---------- 1d. Co-Morbidities ----------//

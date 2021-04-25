@@ -6,6 +6,7 @@
 - One of the field is blank: One or more fields have not been complete. Please complete all the fields.
 - Date of birth < Date of enrollment: The Date of Enrollment is before the participant's Date of Birth, please verify.
 Sex at bith is 'Male': Grey out pregnant question
+- 
 
 
 Note:

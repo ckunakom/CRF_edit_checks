@@ -139,34 +139,34 @@
 
                     <div class="form-group row">
                         <div class="col-sm-10">Clinical suspicion despite not meeting criteria above</div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="clinInc" id="clinRadioY" value="Yes" required />
-                                    Yes
-                                </label>
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="clinInc" id="clinRadioY" value="Yes" required />
+                                        Yes
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="clinInc" id="clinRadioN" value="No" required />
-                                    No
-                                </label>
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="clinInc" id="clinRadioN" value="No" required />
+                                        No
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="discrepancy" id="inclusion-1a-ec0"></div>
-        <div class="discrepancy" id="inclusion-1a-ec1"></div>
-        <div class="discrepancy" id="inclusion-1a-ec2"></div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" class="btn btn-outline-secondary" id="inclusion-1a" onclick="inclusion()">Submit</button>
-        </div>
-    </fieldset>
-  </form>
+            <div class="discrepancy" id="inclusion-1a-ec0"></div>
+            <div class="discrepancy" id="inclusion-1a-ec1"></div>
+            <div class="discrepancy" id="inclusion-1a-ec2"></div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-outline-secondary submit-button" id="inclusion-1a" onclick="inclusion()">Submit</button>
+            </div>
+        </fieldset>
+    </form>
 
 
   <form id="demographic">
@@ -213,7 +213,7 @@
                             <div class="col-sm-3">
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="dob-unknown" id="DOB-unknown" value="Unknown" required />
+                                        <input type="checkbox" class="form-check-input" name="dob-unknown" id="DOB-unknown" value="Unknown" required />
                                         Unknown
                                     </label>
                                 </div>
@@ -333,11 +333,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="discrepancy" id="demographic-1b-ec0"></div>
-                <div class="discrepancy" id="demographic-1b-ec1"></div>
-                <div class="discrepancy" id="demographic-1b-ec2"></div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-outline-secondary" id="inclusion-1a" onclick="demographics()">Submit</button>        
+            </div>
+            <div class="discrepancy" id="demographic-1b-ec0"></div>
+            <div class="discrepancy" id="demographic-1b-ec1"></div>
+            <div class="discrepancy" id="demographic-1b-ec2"></div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-outline-secondary submit-button" id="demographic-1b" onclick="demographics()">Submit</button>        
             </div>
         </fieldset>
     </form>
@@ -574,7 +575,7 @@
             <div class="card-header"><strong>1d. CO-MORBIDITIES</strong></div>
             <div class="card-body">
                 <p class="card-text">Existing at admission:</p>
-                <div class='col col-form-label-sm' id='comorbiditiesQ'></div>
+                <div class='col col-form-label-sm' id='comorbidities-q'></div>
             </div>
         </div>
 
