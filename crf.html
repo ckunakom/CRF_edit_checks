@@ -45,7 +45,7 @@
             <div class="form-group row">
                 <label for="participantID" class="col-sm-2 col-form-label col-form-label-sm">Participant ID</label>
                 <div class="col-sm-5">
-                    <input type="number" class="form-control form-control-sm" id="participantID" placeholder="Participant ID" required />
+                    <input type="text" class="form-control form-control-sm" id="participantID" placeholder="Participant ID" required />
                 </div>
             </div>
           
@@ -359,13 +359,13 @@
                         <div class="form-group row">
                             <div class="col-sm-2">Height</div>
                             <label for="height" class="form-check-label col-sm-1">
-                                <input type="number" class="form-control form-control-sm" id="height" required />
+                                <input type="number" min="1" class="form-control form-control-sm" id="height" required />
                             </label>
                             <div class="col-sm-2">cm</div>
                             <div class="col-sm-2"></div>
                             <div class="col-sm-2">Weight</div>
                             <label for="weight" class="form-check-label col-sm-1">
-                                <input type="number" class="form-control form-control-sm" id="weight" required />
+                                <input type="number" min="1" class="form-control form-control-sm" id="weight" required />
                             </label>
                             <div class="col-sm-1">
                                 <div class="form-check">
@@ -522,7 +522,7 @@
                             <div class="col-sm-2"></div>
                             <div class="col-sm-2">Mid-upper arm circumference</div>
                             <label for="mid_upper_arm" class="form-check-label col-sm-1">
-                                <input type="number" class="form-control form-control-sm" id="mid_upper_arm" required />
+                                <input type="number" min="0" class="form-control form-control-sm" id="mid_upper_arm" required />
                             </label>
                             <div class="col-sm-2">mm</div>
                         </div>

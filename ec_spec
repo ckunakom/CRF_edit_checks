@@ -1,7 +1,7 @@
 1a. CLINICAL INCLUSION CRITERIA
 ✔ All of the field is 'No': The participant does not meet the clinical inclusion criteria, please verify.
 ✔ Date of Enrollment is in the future: The Date of Enrollment is in the future, please verify.
-✔ One of the field is blank: One or more fields have not been complete. Please complete all the required fields.
+- One of the field is blank: One or more fields have not been complete. Please complete all the required fields.
 
 1b. DEMOGRAPHICS
 - One of the field is blank: One or more fields have not been complete. Please complete all the required fields.
@@ -10,5 +10,5 @@
  
 
 
-Note:
-- Wanna add upper/lower limit? DBP/SBP, height, weight, etc... I should..... GAH!!!!
+Note to self:
+- Need to use the `required` attribute with the manual validation

@@ -83,8 +83,9 @@ function demographics() {
     else {
         document.getElementById("demographic-1b-ec1").innerHTML = ``;
     }
-    console.log(pass);
-    // If pass, show the green message -- need to restrategize
+    // console.log(pass);
+    // If pass, show the green message -- need to re.strategize // Look into alert on required field
+    
     // document.getElementById("demographic-1a-ec2").innerHTML = pass ? `<div class="complete"><p>All fields have been complete!</p></div>` : ``;
     
 }
@@ -98,6 +99,7 @@ let ageUnitInput = document.getElementById("ageUnit");
 dobUnk.addEventListener("change", unknownDob);
 
 function unknownDob() {
+    
     if (dobUnk.checked == true) {
         ageInput.required = true;
         ageUnitInput.required = true;
@@ -180,3 +182,7 @@ demographicSection.addEventListener('submit', handleForm);
 // TODO: Go through all the unknown field that has disabled input and change checkbox to radio button!
 
 //---------- 1d. Co-Morbidities ----------//
+
+function onsetAdmin() {
+    
+}
