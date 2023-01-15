@@ -1,88 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/cosmo.css">
-    <link rel="stylesheet" href="static/css/style.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>eCRF & EC</title>
-    <link rel="icon" type="image/png" href="https://ckunakom.github.io/img/logo.png">
-  </head>
-  
-  <body>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/css/cosmo.css">
+  <link rel="stylesheet" href="static/css/style.css">
 
-<!-- Add  -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-      <a class="navbar-brand" href="https://ckunakom.github.io/">
-        <img src="https://ckunakom.github.io/img/logo.png" alt="csk-logo" width="45px" height="45px">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active">Home</a>
-          <a class="nav-item nav-link" href="crf.html">eCRF</a>
-          <a class="nav-item nav-link" href="ec.html">Edit Checks (in progress)</a>
-          <a class="nav-item nav-link" href="https://github.com/ckunakom/CRF_edit_checks" target="_blank">Github Repo</a>
+  <title>eCRF & EC</title>
+  <link rel="icon" type="image/png" href="https://ckunakom.github.io/img/logo.png">
+</head>
+
+<body>
+
+  <!-- Add  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <a class="navbar-brand" href="https://ckunakom.github.io/">
+      <img src="https://ckunakom.github.io/img/logo.png" alt="csk-logo" width="45px" height="45px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active">Home</a>
+        <a class="nav-item nav-link" href="crf.html">eCRF</a>
+        <a class="nav-item nav-link" href="ec.html">Edit Checks</a>
+        <a class="nav-item nav-link" href="https://github.com/ckunakom/CRF_edit_checks" target="_blank">Github Repo</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-12">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <h1 class="pb-3 pt-3 border-bottom">Clinical Data Management: eCRF & Edit Checks</h1>
+
+            <div class="row">
+              <div class="col-12">
+                <h3 class="pt-2">Background</h3>
+                <p>When I was a Clinical Data Analyst (CDA), my task include coming up with all kinds of data cleaning
+                  process to ensure that clinical data entered into the database is clean. One of the strategy is to
+                  have Edit Checks in place on the eCRF (electronic case report form) in order to eliminate a good chunk
+                  of manual data review/data cleaning tasks from the clinical monitors which ultimately saves time and
+                  human resources. Additionally, adding validations like Edit Checks enable data cleaning process at a
+                  vert early stage, data entry.</p>
+
+                <p>The CDA typically creates the pdf version of the CRF and the specification for the Edit Checks, which
+                  gestational handed off to the engineers. The engineers then turn those pdf into an electronic form on
+                  the web and programmed the validation procedures according to the CDA's specification.
+                </p>
+
+                <h3 class="pt-2">Purpose & Motivation</h3>
+                <p>Since I never had a chance to do this at work, I wanted to try out the following:</p>
+                <ul>
+                  <li>Turn the pdf version of the CRF to an eCRF</li>
+                  <li>Programm the Edit Checks to demonstrate data cleaning at an early stage of data collection</li>
+                </ul>
+
+                <h3 class="pt-2">Tools</h3>
+                <p>I use the publicly available pdf version of the <a
+                    href="https://www.who.int/publications/i/item/WHO-2019-nCoV-Clinical_CRF-2020.4"
+                    target="_blank">Global COVID-19 Clinical Platform: Rapid CRF</a> from the World Health Organization
+                  (WHO) as my starting material to develop the eCRF using HTML/CSS/Bootstrap. I changed some of the
+                  layout and added some additional questions to incorporate branching logic as I deemed fit.
+
+                  Programmed Edit Checks is done using javaScript. I only did 2 sections for validations since I wanted
+                  to start working on other projcets and closed this out.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-
-    <div class="container">
-        <div class="row mb-2">
-            <div class="col-12">
-                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                  <div class="col p-4 d-flex flex-column position-static">
-                    <h1 class="pb-3 pt-3 border-bottom">Clinical Data Management: eCRF & Edit Checks</h1>
-                
-                    <div class="row">
-                        <div class="col-12">
-                            <h3 class="pt-2">Background</h3>
-                                <p>As a Clinical Data Analyst (CDA), my task include coming up with all kinds of data cleaning process to ensure that clinical data entered into the database is clean. One of the strategy is to have Edit Checks in place on the eCRF (electronic case report form) in order to eliminate a good chunk of manual data review/data cleaning tasks from the clinical monitors which ultimately saves time and human resources. Additionally, adding validations like Edit Checks enable data cleaning process at a vert early stage, data entry.</p>
-
-                                <p>The CDA typically create the pdf version of the CRF and the specification for the Edit Checks, which get handed off to the engineers. The engineers then turn those pdf into an electronic form on the web and programmed the validation procedures according to the CDA's specification. 
-                                </p>
-                        
-                            <h3 class="pt-2">Purpose & Motivation</h3>
-                                <p>To challenge to myself, I would like to employ the skills I picked up from the coding bootcamp to fill in the engineer role and demonstrate the following:</p>
-                                    <ul>
-                                        <li>Turn the pdf version of the CRF to an eCRF</li>
-                                        <li>Programm the Edit Checks to demonstrate data cleaning at an early stage of data collection</li>
-                                    </ul>
-
-                            <h3 class="pt-2">Tools</h3>
-                            <p>I use the publicly available pdf version of the <a href="https://www.who.int/publications/i/item/WHO-2019-nCoV-Clinical_CRF-2020.4" target="_blank">Global COVID-19 Clinical Platform: Rapid CRF</a> from the World Health Organization (WHO) as my starting material to develop the eCRF using HTML/CSS/Bootstrap. I changed some of the layout and added some additional questions to incorporate branching logic as I deemed fit.
-                            
-                            Programmed Edit Checks (in progress) is done using javaScript.</p>
-
-                            <p>I googled my way into completing this project from the beginning until the end, so this is the proof of my ability to learn as I go.</p>
-
-                            <p class='text-info'><strong> 24-APR-2021: CRF layout is done. Slowly working on edit checks.</strong></p>
-
-                        </div>             
-                    </div>
-                  </div>
-                </div>
-                
-
-              
-
-
-            </div>
-        </div>
     </div>
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="static/js/crf.js"></script>
-  </body>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="static/js/crf.js"></script>
+</body>
 
 </html>

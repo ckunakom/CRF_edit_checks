@@ -15,6 +15,7 @@ function inclusion() {
 
     let pass = true;
 
+
     //  All of the field is 'No'
     if (feverNo.checked == true && coughNo.checked == true && sobNo.checked == true && clinNo.checked == true) {
         document.getElementById("inclusion-1a-ec2").innerHTML = `<p>The participant does not meet the clinical inclusion criteria, please verify.</p>`;
@@ -26,38 +27,14 @@ function inclusion() {
 
     // Date of Enrollment is in the future
     if (Date.parse(enroll.value) > new Date()) {
-        // document.getElementById("inclusion-1a-ec1").innerHTML = `<p>The Date of Enrollment ${new Date(enroll.value).toDateString()} is in the future, please verify.`;
         document.getElementById("inclusion-1a-ec1").innerHTML = `<p>The Date of Enrollment ${enroll.value} is in the future, please verify.`;
         pass = false;
     }
     else {
         document.getElementById("inclusion-1a-ec1").innerHTML = ``;
     }
-
-    // Header field incomplete
-    // if (participantId.value == '' || facilityName.value == '' || country.value == '' || enrollment.value == '') {
-    //     document.getElementById("inclusion-1a-ec3").innerHTML = `<p>Please complete all the required field.</p>`;
-    //     pass = false;
-    // }
-
-    // else {
-    //     document.getElementById("inclusion-1a-ec3").innerHTML = ``;
-    // }
-    // console.log(pass);
-    // If pass, show the green message -- HMM, THIS DOESN'T TAKE INTO ACCOUNT THE REQUIRED FIELDS -- Need to rethink
-    // document.getElementById("inclusion-1a-ec0").innerHTML = pass ? `<div class="complete"><p>All fields have been complete!</p></div>` : ``;
-    
-    // ------- REMINDER to self: This is what line 29 does but shorter ---------
-    // if (pass) {
-    //     document.getElementById("inclusion-1a-ec0").innerHTML = `<div class="complete"><p>All fields have been saved complete!</p></div>`;
-    // }
-
-    // else {
-    //     document.getElementById("inclusion-1a-ec0").innerHTML = ``;
-    // }    
 }
 
-// Brendan help me later! (Add an array of all the forms ID and have below cycle through it.)
 let headerInclusion = document.getElementById("header-inclusion");
 function handleForm(event) { event.preventDefault(); } 
 headerInclusion.addEventListener('submit', handleForm);
@@ -180,9 +157,3 @@ let demographicSection = document.getElementById("demographic");
 demographicSection.addEventListener('submit', handleForm);
 
 // TODO: Go through all the unknown field that has disabled input and change checkbox to radio button!
-
-//---------- 1d. Co-Morbidities ----------//
-
-function onsetAdmin() {
-    
-}
